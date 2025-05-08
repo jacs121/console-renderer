@@ -1,0 +1,172 @@
+[
+    {
+        "label": "ConsoleRenderer",
+        "importPath": "renderer",
+        "description": "renderer",
+        "isExtraImport": true,
+        "detail": "renderer",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "colorama",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "colorama",
+        "description": "colorama",
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "types",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "types",
+        "description": "types",
+        "detail": "types",
+        "documentation": {}
+    },
+    {
+        "label": "changedSize",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def changedSize(size):\n    global shadows, x, y\n    x = min(size[0], x)\n    y = min(size[1], y)\n    for shadowIndex in range(len(shadows)):\n        if shadows[shadowIndex] != None:\n            shadows[shadowIndex] = (min(shadows[shadowIndex][0], size[0]), min(shadows[shadowIndex][1], size[1]), shadows[shadowIndex][2])\ndef tick(size):\n    global color, x, y, xm ,ym, maxShadow, shadows\n    screen = [[(0,0,0) for _ in range(size[0]+1)] for _ in range(size[1]*2+1)]",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "tick",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def tick(size):\n    global color, x, y, xm ,ym, maxShadow, shadows\n    screen = [[(0,0,0) for _ in range(size[0]+1)] for _ in range(size[1]*2+1)]\n    screen[y][x] = color\n    screen[y][x+1] = color\n    screen[y][x+2] = color\n    screen[y+1][x] = color\n    screen[y+1][x+1] = color\n    screen[y+1][x+2] = color\n    screen[y+2][x] = color",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "x",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "x = 0\ny = 0\nxm = 1\nym = 1\ncolor = (random.randint(20, 255), random.randint(20, 255), random.randint(20, 255))\nmaxShadow = 100\nshadows = [None]*maxShadow\ndef changedSize(size):\n    global shadows, x, y\n    x = min(size[0], x)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "y",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "y = 0\nxm = 1\nym = 1\ncolor = (random.randint(20, 255), random.randint(20, 255), random.randint(20, 255))\nmaxShadow = 100\nshadows = [None]*maxShadow\ndef changedSize(size):\n    global shadows, x, y\n    x = min(size[0], x)\n    y = min(size[1], y)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "xm",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "xm = 1\nym = 1\ncolor = (random.randint(20, 255), random.randint(20, 255), random.randint(20, 255))\nmaxShadow = 100\nshadows = [None]*maxShadow\ndef changedSize(size):\n    global shadows, x, y\n    x = min(size[0], x)\n    y = min(size[1], y)\n    for shadowIndex in range(len(shadows)):",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "ym",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "ym = 1\ncolor = (random.randint(20, 255), random.randint(20, 255), random.randint(20, 255))\nmaxShadow = 100\nshadows = [None]*maxShadow\ndef changedSize(size):\n    global shadows, x, y\n    x = min(size[0], x)\n    y = min(size[1], y)\n    for shadowIndex in range(len(shadows)):\n        if shadows[shadowIndex] != None:",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "color",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "color = (random.randint(20, 255), random.randint(20, 255), random.randint(20, 255))\nmaxShadow = 100\nshadows = [None]*maxShadow\ndef changedSize(size):\n    global shadows, x, y\n    x = min(size[0], x)\n    y = min(size[1], y)\n    for shadowIndex in range(len(shadows)):\n        if shadows[shadowIndex] != None:\n            shadows[shadowIndex] = (min(shadows[shadowIndex][0], size[0]), min(shadows[shadowIndex][1], size[1]), shadows[shadowIndex][2])",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "maxShadow",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "maxShadow = 100\nshadows = [None]*maxShadow\ndef changedSize(size):\n    global shadows, x, y\n    x = min(size[0], x)\n    y = min(size[1], y)\n    for shadowIndex in range(len(shadows)):\n        if shadows[shadowIndex] != None:\n            shadows[shadowIndex] = (min(shadows[shadowIndex][0], size[0]), min(shadows[shadowIndex][1], size[1]), shadows[shadowIndex][2])\ndef tick(size):",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "shadows",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "shadows = [None]*maxShadow\ndef changedSize(size):\n    global shadows, x, y\n    x = min(size[0], x)\n    y = min(size[1], y)\n    for shadowIndex in range(len(shadows)):\n        if shadows[shadowIndex] != None:\n            shadows[shadowIndex] = (min(shadows[shadowIndex][0], size[0]), min(shadows[shadowIndex][1], size[1]), shadows[shadowIndex][2])\ndef tick(size):\n    global color, x, y, xm ,ym, maxShadow, shadows",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "renderer",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "renderer = ConsoleRenderer(tick, changedSize)\nrenderer.run(60)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "ConsoleRenderer",
+        "kind": 6,
+        "importPath": "renderer",
+        "description": "renderer",
+        "peekOfCode": "class ConsoleRenderer():\n    def __init__(self, tick:types.FunctionType = None, sizeChange:types.FunctionType = None):\n        colorama.init()\n        self.running = False\n        self.onTick = tick\n        self.onSizeChange = sizeChange\n    def onTick(self, size: tuple[int, int]):\n        return [[]]\n    def stop(self):\n        self.running = False",
+        "detail": "renderer",
+        "documentation": {}
+    }
+]
