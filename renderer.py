@@ -4,6 +4,37 @@ import colorama
 import time
 import subprocess
 import types
+import vectors
+from textures import Color, Texture
+
+class renderObject2D:
+    def __init__(self, **kwargs):
+        keys = kwargs.keys()
+        if "texture" in list(keys):
+            self.__texture__ = kwargs["texture"]
+        if "color" in list(keys):
+            self.__texture__ = Texture(kwargs["color"])
+        else:
+            self.__texture__ = Texture(Color(255,255,255))
+
+        if "right" in list(keys) and "top" in list(keys) and "left" in list(keys) and "right" in list(keys):
+            self.__scale_vector__ = vectors.Vector2d(kwargs["right"] - kwargs["left"], kwargs["bottom"] - kwargs["top"])
+            self.__position_vector__ = vectors.Vector2d(kwargs["left"], kwargs["top"])
+        elif "x" in list(keys) and "y" in list(keys) and "width" in list(keys) and "height" in list(keys):
+            self.__scale_vector__ = vectors.Vector2d(kwargs["width"], kwargs["height"])
+            self.__position_vector__ = vectors.Vector2d(kwargs["x"], kwargs["y"])
+
+    @property
+    def texture():
+        pass
+    
+    @property
+    def pos(self):
+        return self.__position_vector__
+    
+    @property
+    def scale(self):
+        return self.__scale_vector__
 
 class ConsoleRenderer():
     def __init__(self, tick:types.FunctionType = None, sizeChange:types.FunctionType = None):
@@ -112,13 +143,3 @@ class ConsoleRenderer():
                 text += "\n"
         sys.stdout.write(text)
         sys.stdout.flush()
-
-
-"""
-
-###
-###
-###
-
-
-"""

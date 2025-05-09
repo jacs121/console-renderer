@@ -71,6 +71,80 @@
         "documentation": {}
     },
     {
+        "label": "vectors",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "vectors",
+        "description": "vectors",
+        "detail": "vectors",
+        "documentation": {}
+    },
+    {
+        "label": "Vector2d",
+        "importPath": "vectors",
+        "description": "vectors",
+        "isExtraImport": true,
+        "detail": "vectors",
+        "documentation": {}
+    },
+    {
+        "label": "Color",
+        "importPath": "textures",
+        "description": "textures",
+        "isExtraImport": true,
+        "detail": "textures",
+        "documentation": {}
+    },
+    {
+        "label": "Texture",
+        "importPath": "textures",
+        "description": "textures",
+        "isExtraImport": true,
+        "detail": "textures",
+        "documentation": {}
+    },
+    {
+        "label": "Literal",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "math",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "math",
+        "description": "math",
+        "detail": "math",
+        "documentation": {}
+    },
+    {
         "label": "changedSize",
         "kind": 2,
         "importPath": "main",
@@ -161,12 +235,93 @@
         "documentation": {}
     },
     {
+        "label": "renderObject2D",
+        "kind": 6,
+        "importPath": "renderer",
+        "description": "renderer",
+        "peekOfCode": "class renderObject2D:\n    def __init__(self, **kwargs):\n        keys = kwargs.keys()\n        if \"texture\" in list(keys):\n            self.__texture__ = kwargs[\"texture\"]\n        if \"color\" in list(keys):\n            self.__texture__ = Texture(kwargs[\"color\"])\n        else:\n            self.__texture__ = Texture(Color(255,255,255))\n        if \"right\" in list(keys) and \"top\" in list(keys) and \"left\" in list(keys) and \"right\" in list(keys):",
+        "detail": "renderer",
+        "documentation": {}
+    },
+    {
         "label": "ConsoleRenderer",
         "kind": 6,
         "importPath": "renderer",
         "description": "renderer",
         "peekOfCode": "class ConsoleRenderer():\n    def __init__(self, tick:types.FunctionType = None, sizeChange:types.FunctionType = None):\n        colorama.init()\n        self.running = False\n        self.onTick = tick\n        self.onSizeChange = sizeChange\n    def onTick(self, size: tuple[int, int]):\n        return [[]]\n    def stop(self):\n        self.running = False",
         "detail": "renderer",
+        "documentation": {}
+    },
+    {
+        "label": "REPEAT_MODE",
+        "kind": 6,
+        "importPath": "textures",
+        "description": "textures",
+        "peekOfCode": "class REPEAT_MODE(str, Enum):\n    INFINITE = \"INFINITE\"\n    FINITE = \"FINITE\"\n    DISABLE = \"DISABLE\"\nclass Color:\n    mode: _ColorMode\n    def __init__(self, mode: _ColorMode, *args: _Number):\n        self.mode = mode.upper()  # type: ignore\n        if self.mode == \"RGB\":\n            if len(args) != 3:",
+        "detail": "textures",
+        "documentation": {}
+    },
+    {
+        "label": "Color",
+        "kind": 6,
+        "importPath": "textures",
+        "description": "textures",
+        "peekOfCode": "class Color:\n    mode: _ColorMode\n    def __init__(self, mode: _ColorMode, *args: _Number):\n        self.mode = mode.upper()  # type: ignore\n        if self.mode == \"RGB\":\n            if len(args) != 3:\n                raise ValueError(\"RGB mode requires 3 values\")\n            self.r: _Number\n            self.g: _Number\n            self.b: _Number",
+        "detail": "textures",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "kind": 6,
+        "importPath": "textures",
+        "description": "textures",
+        "peekOfCode": "class Image():\n    pass\nclass Texture():\n    def __init__(self, data: Color | Image, repeatMode: Optional[REPEAT_MODE] = None):\n        self.__repeat_mode__ = repeatMode\n        if data == Color:\n            self.__size__ = Vector2d(1,1)\n            if self.__repeat_mode__ == None:\n                self.__repeat_mode__ = REPEAT_MODE.INFINITE\n            self.met = [[data]]",
+        "detail": "textures",
+        "documentation": {}
+    },
+    {
+        "label": "Texture",
+        "kind": 6,
+        "importPath": "textures",
+        "description": "textures",
+        "peekOfCode": "class Texture():\n    def __init__(self, data: Color | Image, repeatMode: Optional[REPEAT_MODE] = None):\n        self.__repeat_mode__ = repeatMode\n        if data == Color:\n            self.__size__ = Vector2d(1,1)\n            if self.__repeat_mode__ == None:\n                self.__repeat_mode__ = REPEAT_MODE.INFINITE\n            self.met = [[data]]\n        elif data == Image:\n            if self.__repeat_mode__ == None:",
+        "detail": "textures",
+        "documentation": {}
+    },
+    {
+        "label": "_ColorMode",
+        "kind": 5,
+        "importPath": "textures",
+        "description": "textures",
+        "peekOfCode": "_ColorMode = Literal[\"RGB\", \"RGBA\", \"HSV\", \"GRAY\"]\n_Number = Union[int, float]\nclass REPEAT_MODE(str, Enum):\n    INFINITE = \"INFINITE\"\n    FINITE = \"FINITE\"\n    DISABLE = \"DISABLE\"\nclass Color:\n    mode: _ColorMode\n    def __init__(self, mode: _ColorMode, *args: _Number):\n        self.mode = mode.upper()  # type: ignore",
+        "detail": "textures",
+        "documentation": {}
+    },
+    {
+        "label": "_Number",
+        "kind": 5,
+        "importPath": "textures",
+        "description": "textures",
+        "peekOfCode": "_Number = Union[int, float]\nclass REPEAT_MODE(str, Enum):\n    INFINITE = \"INFINITE\"\n    FINITE = \"FINITE\"\n    DISABLE = \"DISABLE\"\nclass Color:\n    mode: _ColorMode\n    def __init__(self, mode: _ColorMode, *args: _Number):\n        self.mode = mode.upper()  # type: ignore\n        if self.mode == \"RGB\":",
+        "detail": "textures",
+        "documentation": {}
+    },
+    {
+        "label": "Vector2d",
+        "kind": 6,
+        "importPath": "vectors",
+        "description": "vectors",
+        "peekOfCode": "class Vector2d:\n    num_of_vectors = 0\n    def __init__(self, x: int | float = 0, y: int | float = 0):\n        self.x = x\n        self.y = y\n        Vector2d.num_of_vectors += 1\n    def __add__(self, b):\n        return Vector2d(self.x + b.x, self.y + b.y)\n    def __sub__(self, b):\n        return Vector2d(self.x - b.x, self.y - b.y)",
+        "detail": "vectors",
+        "documentation": {}
+    },
+    {
+        "label": "Vector3d",
+        "kind": 6,
+        "importPath": "vectors",
+        "description": "vectors",
+        "peekOfCode": "class Vector3d:\n    num_of_vectors = 0\n    def __init__(self, x: int | float = 0, y: int | float = 0, z: int | float = 0):\n        self.x = x\n        self.y = y\n        self.z = z\n        Vector3d.num_of_vectors += 1\n    def __add__(self, b):\n        return Vector3d(self.x + b.x, self.y + b.y, self.z + b.z)\n    def __sub__(self, b):",
+        "detail": "vectors",
         "documentation": {}
     }
 ]
