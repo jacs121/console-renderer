@@ -1,0 +1,79 @@
+{
+    "init": {
+        "playerPos": [5, 57]
+    },
+    "objects": [
+        {
+            "type": "wall",
+            "color": [25,25,25],
+            "collision": true,
+            "blockLight": true,
+            "A": [0, 0],
+            "B": [100, 0]
+        },
+        {
+            "type": "wall",
+            "color": [25,25,25],
+            "collision": true,
+            "blockLight": true,
+            "A": [0, 50],
+            "B": [0, 75]
+        },
+        {
+            "type": "wall",
+            "color": [25,25,25],
+            "collision": true,
+            "blockLight": true,
+            "A": [0, 75],
+            "B": [50, 75]
+        },
+        {
+            "type": "wall",
+            "color": [25,25,25],
+            "collision": true,
+            "blockLight": true,
+            "A": [40, 50],
+            "B": [50, 50]
+        },
+        {
+            "type": "wall",
+            "color": [25,25,25],
+            "collision": true,
+            "blockLight": true,
+            "A": [0, 50],
+            "B": [25, 50]
+        },
+        {
+            "type": "wall",
+            "color": [25,25,25],
+            "collision": true,
+            "blockLight": true,
+            "A": [50, 100],
+            "B": [100, 100]
+        },
+        {
+            "type": "wall",
+            "color": [25,25,25],
+            "collision": true,
+            "blockLight": true,
+            "A": [0, 50],
+            "B": [0, 0]
+        },
+        {
+            "type": "wall",
+            "color": [25,25,25],
+            "collision": true,
+            "blockLight": true,
+            "A": [50, 50],
+            "B": [50, 100]
+        },
+        {
+            "type": "wall",
+            "color": [25,25,25],
+            "collision": true,
+            "blockLight": true,
+            "A": [ 100, 0],
+            "B": [100, 100]
+        }
+    ]
+}

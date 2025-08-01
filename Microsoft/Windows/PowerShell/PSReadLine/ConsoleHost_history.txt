@@ -1,0 +1,3 @@
+& C:/Users/ניצן/AppData/Local/Programs/Python/Python313/python.exe "c:/Users/ניצן/Documents/my sit/apps/progects/pc/tests/console-renderer/main.py"
+& C:/Users/ניצן/AppData/Local/Programs/Python/Python313/python.exe "c:/Users/ניצן/Documents/my sit/apps/progects/pc/tests/console-renderer/textures.py"
+& C:/Users/ניצן/AppData/Local/Programs/Python/Python313/python.exe "c:/Users/ניצן/Documents/my sit/apps/progects/pc/tests/console-renderer/main.py"

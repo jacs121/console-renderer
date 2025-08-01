@@ -14,26 +14,26 @@ class REPEAT_MODE(str, Enum):
 class Color:
     mode: _ColorMode
 
-    def __init__(self, mode: _ColorMode, *args: _Number):
+    def __init__(self, mode: _ColorMode, val: list[_Number]):
         self.mode = mode.upper()  # type: ignore
         if self.mode == "RGB":
-            if len(args) != 3:
+            if len(val) != 3:
                 raise ValueError("RGB mode requires 3 values")
-            self.r: _Number
-            self.g: _Number
-            self.b: _Number
+            self.r: _Number = val[0]
+            self.g: _Number = val[1]
+            self.b: _Number = val[2]
             self.rg = self.r, self.g
             self.gb = self.g, self.b
             self.rb = self.b, self.r
-            self.rgb = args
-            self.r, self.g, self.b = args
+            self.rgb = val
+            self.r, self.g, self.b = val
         elif self.mode == "RGBA":
-            if len(args) != 4:
+            if len(val) != 4:
                 raise ValueError("RGBA mode requires 4 values")
-            self.r: _Number
-            self.g: _Number
-            self.b: _Number
-            self.a: _Number
+            self.r: _Number = val[0]
+            self.g: _Number = val[1]
+            self.b: _Number = val[2]
+            self.a: _Number = val[3]
             self.rg = self.r, self.g
             self.gb = self.g, self.b
             self.br = self.b, self.r
@@ -42,22 +42,20 @@ class Color:
             self.bra = self.b, self.r, self.a
             self.rgb = self.r, self.g, self.b
             self.rgba = self.r, self.g, self.b, self.a
-            self.r, self.g, self.b, self.a = args
         elif self.mode == "HSV":
-            if len(args) != 3:
+            if len(val) != 3:
                 raise ValueError("HSV mode requires 3 values")
-            self.h: _Number
-            self.s: _Number
-            self.v: _Number
-            self.hs: _Number
-            self.sv: _Number
-            self.vh: _Number
-            self.h, self.s, self.v = args
+            self.h: _Number = val[0]
+            self.s: _Number = val[1]
+            self.v: _Number = val[2]
+            self.hs: _Number = val[0], val[1]
+            self.sv: _Number = val[1], val[2]
+            self.vh: _Number = val[2], val[0]
         elif self.mode == "GRAY":
-            if len(args) != 1:
+            if len(val) != 1:
                 raise ValueError("GRAY mode requires 1 value")
             self.gray: _Number
-            self.gray = args[0]
+            self.gray = val[0]
         else:
             raise ValueError(f"Unsupported mode: {mode}")
 
@@ -78,15 +76,15 @@ class Image():
 class Texture():
     def __init__(self, data: Color | Image, repeatMode: Optional[REPEAT_MODE] = None):
         self.__repeat_mode__ = repeatMode
-        if data == Color:
+        if type(data) == Color:
             self.__size__ = Vector2d(1,1)
             if self.__repeat_mode__ == None:
                 self.__repeat_mode__ = REPEAT_MODE.INFINITE
-            self.met = [[data]]
-        elif data == Image:
+            self.__met__ = [[data]]
+        elif type(data) == Image:
             if self.__repeat_mode__ == None:
                 self.__repeat_mode__ = REPEAT_MODE.DISABLE
-            self.met = data.dataArray
+            self.__met__ = data.dataArray
         else:
             raise TypeError("data type can only be Color or Image")
         if self.__repeat_mode__ == REPEAT_MODE.FINITE:
@@ -94,13 +92,13 @@ class Texture():
                 raise ValueError("second argument expected to be REPEAT_MODE")
         self.__repeat_vector__ = Vector2d(1, 1)
 
-    def __ror__(self, value: Vector2d): # self[Vector2d(x, y)]
-        maximum = Vector2d(len(max(self.met, key=len)), len(self.met))
+    def __getitem__(self, value: Vector2d): # self[Vector2d(x, y)]
+        maximum = Vector2d(len(max(self.__met__, key=len)), len(self.__met__))
         if self.__repeat_mode__ == REPEAT_MODE.FINITE:
             maximum = self.__size__*self.__repeat_vector__
             if maximum.x >= abs(value.x) or maximum.y >= abs(value.y):
                 raise IndexError(f"{value} is outside of the maximum texture size ({maximum})")
-            # make a copy of met repeated until it matches size
+            # make a copy of __met__ repeated until it matches size
             x = value.x % maximum.x
             y = value.y % maximum.y
 
@@ -108,10 +106,10 @@ class Texture():
             maximum = self.__size__
             if maximum.x >= abs(value.x) or maximum.y >= abs(value.y):
                 raise IndexError(f"{value} is outside of the maximum texture size ({maximum})")
-            # make a copy of met repeated until it matches size
+            # make a copy of __met__ repeated until it matches size
             x = value.x
             y = value.y
         else:
             x = value.x % maximum.x
             y = value.y % maximum.y
-        return self.met[y][x]
+        return self.__met__[y][x]

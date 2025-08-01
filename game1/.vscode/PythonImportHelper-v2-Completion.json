@@ -1,0 +1,349 @@
+[
+    {
+        "label": "renderer",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "renderer",
+        "description": "renderer",
+        "detail": "renderer",
+        "documentation": {}
+    },
+    {
+        "label": "math",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "math",
+        "description": "math",
+        "detail": "math",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "copy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "copy",
+        "description": "copy",
+        "detail": "copy",
+        "documentation": {}
+    },
+    {
+        "label": "keyboard",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "keyboard",
+        "description": "keyboard",
+        "detail": "keyboard",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "colorama",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "colorama",
+        "description": "colorama",
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "types",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "types",
+        "description": "types",
+        "detail": "types",
+        "documentation": {}
+    },
+    {
+        "label": "ctypes",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "ctypes",
+        "description": "ctypes",
+        "detail": "ctypes",
+        "documentation": {}
+    },
+    {
+        "label": "colorsys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "colorsys",
+        "description": "colorsys",
+        "detail": "colorsys",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "generate_light",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def generate_light(object, roomSize, lightsList):\n    # create an empty stamp\n    lightPixels:list[list] = []\n    # calc where the lightPixels list is stamped on the map\n    lightRegionPos = (object[\"pos\"][0]-object[\"radius\"], object[\"pos\"][1]-object[\"radius\"])\n    lightsList[\"offsets\"].append(lightRegionPos)\n    # expand the room size if needed (for adding the stamps later)\n    if roomSize[0] < object[\"pos\"][0]+object[\"radius\"]+1:\n        roomSize = (object[\"pos\"][0]+object[\"radius\"]+1, roomSize[1])\n    if roomSize[1] < object[\"pos\"][1]+object[\"radius\"]+1:",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "get_outline",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def get_outline(radius, angleRange, angle):\n    outline_points = []\n    for angle_deg in range(angleRange):\n        angle_rad = math.radians(angle_deg+angle)\n        x = int(round(radius * math.cos(angle_rad)))\n        y = int(round(radius * math.sin(angle_rad)))\n        outline_points.append((x, y))\n    # Remove duplicates (some angles may map to same pixel)\n    return outline_points\ndef cast_light_rays(light_pos, radius, angleRange, angle):",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "cast_light_rays",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def cast_light_rays(light_pos, radius, angleRange, angle):\n    visible_pixels = []\n    blocked_pixels = []\n    outline = get_outline(radius, angleRange, angle)\n    for dx, dy in outline:\n        target = (light_pos[0] + dx, light_pos[1] + dy)\n        ray_pixels = bresenham_line(light_pos[0], light_pos[1], target[0], target[1])\n        blockedIndex = -1\n        for px, py in ray_pixels:\n            if (px, py) in lightBlocking:",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "bresenham_line",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def bresenham_line(x0, y0, x1, y1):\n    \"\"\"\n    Returns a list of (x, y) points from (x0, y0) to (x1, y1) using Bresenham's algorithm.\n    \"\"\"\n    points = []\n    dx = abs(x1 - x0)\n    dy = abs(y1 - y0)\n    sx = 1 if x0 < x1 else -1\n    sy = 1 if y0 < y1 else -1\n    err = dx - dy",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "load_room",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def load_room(pos: tuple[int, int]):\n    global walls, roomSize, lights, collisions, lightBlocking, playerPos, visibleWallsCanvas\n    if not os.path.isfile(f\"./rooms/{pos[0]}_{pos[1]}.json\"):\n        return\n    room = json.load(open(f\"./rooms/{pos[0]}_{pos[1]}.json\"))\n    walls = {\"pixels\":[], \"offsets\":[]}\n    lights = {\"pixels\": [], \"offsets\":[]}\n    collisions = []\n    playerPos = room[\"init\"][\"playerPos\"]\n    roomSize = (0,0)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "onResize",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def onResize(size):\n    return tick(size)\nload_room((0,0))\ndef tick(size):\n    global playerPos, playerRot, visibleWalls, visibleWallsCanvas\n    player_angle_rad = math.radians(playerRot)\n    if (keyboard.is_pressed(\"w\") or keyboard.is_pressed(\"up\")) and (playerPos[0]+round(math.cos(player_angle_rad)), playerPos[1]+round(math.sin(player_angle_rad))) not in collisions:\n        playerPos = (playerPos[0]+round(math.cos(player_angle_rad)), playerPos[1]+round(math.sin(player_angle_rad)))\n    elif (keyboard.is_pressed(\"s\") or keyboard.is_pressed(\"down\")) and (playerPos[0]-round(math.cos(player_angle_rad)), playerPos[1]-round(math.sin(player_angle_rad))) not in collisions:\n        playerPos = (playerPos[0]-round(math.cos(player_angle_rad)), playerPos[1]-round(math.sin(player_angle_rad)))",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "tick",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def tick(size):\n    global playerPos, playerRot, visibleWalls, visibleWallsCanvas\n    player_angle_rad = math.radians(playerRot)\n    if (keyboard.is_pressed(\"w\") or keyboard.is_pressed(\"up\")) and (playerPos[0]+round(math.cos(player_angle_rad)), playerPos[1]+round(math.sin(player_angle_rad))) not in collisions:\n        playerPos = (playerPos[0]+round(math.cos(player_angle_rad)), playerPos[1]+round(math.sin(player_angle_rad)))\n    elif (keyboard.is_pressed(\"s\") or keyboard.is_pressed(\"down\")) and (playerPos[0]-round(math.cos(player_angle_rad)), playerPos[1]-round(math.sin(player_angle_rad))) not in collisions:\n        playerPos = (playerPos[0]-round(math.cos(player_angle_rad)), playerPos[1]-round(math.sin(player_angle_rad)))\n    if keyboard.is_pressed(\"a\") and (playerPos[0]-round(math.cos(player_angle_rad+math.radians(90))), playerPos[1]-round(math.sin(player_angle_rad+math.radians(90)))) not in collisions:\n        playerPos = (playerPos[0]-round(math.cos(player_angle_rad+math.radians(90))), playerPos[1]-round(math.sin(player_angle_rad+math.radians(90))))\n    elif keyboard.is_pressed(\"d\") and (playerPos[0]+round(math.cos(player_angle_rad+math.radians(90))), playerPos[1]+round(math.sin(player_angle_rad+math.radians(90)))) not in collisions:",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "playerPos",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "playerPos = (0,0)\nwalls = {\"pixels\":[], \"offsets\":[]}\nlights = {\"pixels\": [], \"offsets\":[]}\nlightBlocking = []\nplayerRot = 40\nroomSize = (0,0)\nvisibleWalls = []\nvisibleWallsCanvas = [[]]\ndef get_outline(radius, angleRange, angle):\n    outline_points = []",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "walls",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "walls = {\"pixels\":[], \"offsets\":[]}\nlights = {\"pixels\": [], \"offsets\":[]}\nlightBlocking = []\nplayerRot = 40\nroomSize = (0,0)\nvisibleWalls = []\nvisibleWallsCanvas = [[]]\ndef get_outline(radius, angleRange, angle):\n    outline_points = []\n    for angle_deg in range(angleRange):",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "lights",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "lights = {\"pixels\": [], \"offsets\":[]}\nlightBlocking = []\nplayerRot = 40\nroomSize = (0,0)\nvisibleWalls = []\nvisibleWallsCanvas = [[]]\ndef get_outline(radius, angleRange, angle):\n    outline_points = []\n    for angle_deg in range(angleRange):\n        angle_rad = math.radians(angle_deg+angle)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "lightBlocking",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "lightBlocking = []\nplayerRot = 40\nroomSize = (0,0)\nvisibleWalls = []\nvisibleWallsCanvas = [[]]\ndef get_outline(radius, angleRange, angle):\n    outline_points = []\n    for angle_deg in range(angleRange):\n        angle_rad = math.radians(angle_deg+angle)\n        x = int(round(radius * math.cos(angle_rad)))",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "playerRot",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "playerRot = 40\nroomSize = (0,0)\nvisibleWalls = []\nvisibleWallsCanvas = [[]]\ndef get_outline(radius, angleRange, angle):\n    outline_points = []\n    for angle_deg in range(angleRange):\n        angle_rad = math.radians(angle_deg+angle)\n        x = int(round(radius * math.cos(angle_rad)))\n        y = int(round(radius * math.sin(angle_rad)))",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "roomSize",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "roomSize = (0,0)\nvisibleWalls = []\nvisibleWallsCanvas = [[]]\ndef get_outline(radius, angleRange, angle):\n    outline_points = []\n    for angle_deg in range(angleRange):\n        angle_rad = math.radians(angle_deg+angle)\n        x = int(round(radius * math.cos(angle_rad)))\n        y = int(round(radius * math.sin(angle_rad)))\n        outline_points.append((x, y))",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "visibleWalls",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "visibleWalls = []\nvisibleWallsCanvas = [[]]\ndef get_outline(radius, angleRange, angle):\n    outline_points = []\n    for angle_deg in range(angleRange):\n        angle_rad = math.radians(angle_deg+angle)\n        x = int(round(radius * math.cos(angle_rad)))\n        y = int(round(radius * math.sin(angle_rad)))\n        outline_points.append((x, y))\n    # Remove duplicates (some angles may map to same pixel)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "visibleWallsCanvas",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "visibleWallsCanvas = [[]]\ndef get_outline(radius, angleRange, angle):\n    outline_points = []\n    for angle_deg in range(angleRange):\n        angle_rad = math.radians(angle_deg+angle)\n        x = int(round(radius * math.cos(angle_rad)))\n        y = int(round(radius * math.sin(angle_rad)))\n        outline_points.append((x, y))\n    # Remove duplicates (some angles may map to same pixel)\n    return outline_points",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "render = renderer.ConsoleRenderer(tick, onResize, bg=(1,1,1))\nrender.run(60)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "ConsoleRenderer",
+        "kind": 6,
+        "importPath": "renderer",
+        "description": "renderer",
+        "peekOfCode": "class ConsoleRenderer():\n    def __init__(self, tick:types.FunctionType = None, sizeChange:types.FunctionType = None, bg: tuple[int, int, int] = (0,0,0), disableConsoleCursor: bool = True):\n        colorama.init()\n        self.__running__ = False\n        self.onTick = tick\n        self.onSizeChange = sizeChange\n        self.__bg__ = bg\n        self.__disable_console_cursor__ = disableConsoleCursor\n        self.__prevFrame__ = [[]]\n    def onTick(self, size: tuple[int, int]) -> list[list[tuple[int, int, int]]]:",
+        "detail": "renderer",
+        "documentation": {}
+    },
+    {
+        "label": "Color",
+        "kind": 6,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "class Color:\n    def __init__(self, \n                 r: float = 0.0, \n                 g: float = 0.0, \n                 b: float = 0.0, \n                 a: float = 1.0, \n                 h: Optional[float] = None, \n                 s: Optional[float] = None, \n                 l: Optional[float] = None):\n        \"\"\"",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "Texture",
+        "kind": 6,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "class Texture:\n    def __init__(self, source: Union[Color, List[List[Color]]], width: Optional[int] = None, height: Optional[int] = None):\n        \"\"\"\n        Represents a texture that can be either:\n        - A solid color\n        - An image (2D grid of Color objects)\n        \"\"\"\n        if isinstance(source, Color):\n            self.is_solid = True\n            self.color = source",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "Rect",
+        "kind": 6,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "class Rect:\n    def __init__(self, \n                 x: float, \n                 y: float, \n                 width: float, \n                 height: float, \n                 rotation: float = 0.0):\n        \"\"\"\n        Represents a rectangle with position, size, and rotation\n        Coordinates are for the center of the rectangle",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "Collision",
+        "kind": 6,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "class Collision:\n    def __init__(self, rect1: Rect, rect2: Rect):\n        \"\"\"Represents a collision between two rectangles\"\"\"\n        self.rect1 = rect1\n        self.rect2 = rect2\n        self._normal = (0.0, 0.0)\n        self._depth = 0.0\n        self._calculate_collision()\n    def _calculate_collision(self):\n        \"\"\"Calculate collision details using Separating Axis Theorem\"\"\"",
+        "detail": "test",
+        "documentation": {}
+    }
+]
