@@ -48,12 +48,12 @@ class ConsoleRenderer():
             if size != _size:
                 size = _size
                 if self.onSizeChange:
-                    out = self.onSizeChange(size)
+                    out = self.onSizeChange(Vector2(size.y, size.x))
                     if out is not None:
                         self.__show_pixels__(self.__get_pixel_display_list__(out))
                         self.__prevFrame__ = out
             
-            pixels = self.onTick(size)
+            pixels = self.onTick(Vector2(size.y, size.x))
             self.__show_pixels__(self.__get_pixel_display_list__(pixels))
             time.sleep(1/fps)
             

@@ -37,8 +37,8 @@ class Image:
             for x in range(self.width):
                 self.dataArray[y][x] = Color(color.mode, list(color))
 
-    def __getitem__(self, index: int) -> List[Color]:
-        return self.dataArray[index]
+    def __getitem__(self, index: Vector2) -> List[Color]:
+        return self.dataArray[index.x][index.y]
 
     def __len__(self) -> int:
         return self.height
