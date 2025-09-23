@@ -118,7 +118,7 @@ class ConsoleRenderer():
         for y in range(original_height):
             for x in range(original_width):
                 if 0 <= y + offset_y < display_height and 0 <= x + offset_x < display_width:
-                    pixelList[y + offset_y][x + offset_x] = (original[y][x][0], original[y][x][1], original[y][x][2])
+                    pixelList[y + offset_y][x + offset_x] = (int(original[y][x][0]), int(original[y][x][1]), int(original[y][x][2]))
 
         return pixelList
 

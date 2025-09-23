@@ -1,4 +1,4 @@
-import renderer
+import termgfx
 import math
 import json
 import copy
@@ -194,5 +194,5 @@ def tick(size):
         canvas = render.overlayOnCanvas(canvas, lightPixels, offset)
     return canvas
 
-render = renderer.ConsoleRenderer(tick, onResize, bg=(1,1,1))
+render = termgfx.ConsoleRenderer(tick, onResize, bg=(1,1,1))
 render.run(60)

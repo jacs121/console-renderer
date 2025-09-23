@@ -1,15 +1,12 @@
-import renderer
-import keyboard
+from termgfx import colors
+from termgfx import renderer
+from termgfx import vectors
+from termgfx import textures
 
-def changedSize(size):
-    return
+def tick(resolution: vectors.Vector2) -> textures.Texture:
+    img = textures.Image(resolution // 10, colors.RGB_BLUE)
+    img.set_pixel(resolution // 20, colors.RGB_YELLOW)
+    return textures.Texture(img, textures.REPEAT_MODE.INFINITE)
 
-playerPos = (0,0)
-playerRoomPos = (0,0)
-
-def tick(size):
-    global playerPos
-    return
-
-render = renderer.ConsoleRenderer(tick, changedSize)
-render.run(60)
+render = renderer.ConsoleRenderer(tick)
+render.run(fps=30)

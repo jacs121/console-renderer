@@ -1,11 +1,107 @@
 [
     {
-        "label": "renderer",
+        "label": "termgfx",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "renderer",
-        "description": "renderer",
-        "detail": "renderer",
+        "importPath": "termgfx",
+        "description": "termgfx",
+        "detail": "termgfx",
+        "documentation": {}
+    },
+    {
+        "label": "ConsoleRenderer",
+        "importPath": "termgfx",
+        "description": "termgfx",
+        "isExtraImport": true,
+        "detail": "termgfx",
+        "documentation": {}
+    },
+    {
+        "label": "ConsoleRenderer",
+        "importPath": "termgfx",
+        "description": "termgfx",
+        "isExtraImport": true,
+        "detail": "termgfx",
+        "documentation": {}
+    },
+    {
+        "label": "Vector2",
+        "importPath": "termgfx",
+        "description": "termgfx",
+        "isExtraImport": true,
+        "detail": "termgfx",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "termgfx",
+        "description": "termgfx",
+        "isExtraImport": true,
+        "detail": "termgfx",
+        "documentation": {}
+    },
+    {
+        "label": "Color",
+        "importPath": "termgfx",
+        "description": "termgfx",
+        "isExtraImport": true,
+        "detail": "termgfx",
+        "documentation": {}
+    },
+    {
+        "label": "RGB_RED",
+        "importPath": "termgfx",
+        "description": "termgfx",
+        "isExtraImport": true,
+        "detail": "termgfx",
+        "documentation": {}
+    },
+    {
+        "label": "RGB_GREEN",
+        "importPath": "termgfx",
+        "description": "termgfx",
+        "isExtraImport": true,
+        "detail": "termgfx",
+        "documentation": {}
+    },
+    {
+        "label": "RGB_BLUE",
+        "importPath": "termgfx",
+        "description": "termgfx",
+        "isExtraImport": true,
+        "detail": "termgfx",
+        "documentation": {}
+    },
+    {
+        "label": "colors",
+        "importPath": "termgfx",
+        "description": "termgfx",
+        "isExtraImport": true,
+        "detail": "termgfx",
+        "documentation": {}
+    },
+    {
+        "label": "renderer",
+        "importPath": "termgfx",
+        "description": "termgfx",
+        "isExtraImport": true,
+        "detail": "termgfx",
+        "documentation": {}
+    },
+    {
+        "label": "vectors",
+        "importPath": "termgfx",
+        "description": "termgfx",
+        "isExtraImport": true,
+        "detail": "termgfx",
+        "documentation": {}
+    },
+    {
+        "label": "textures",
+        "importPath": "termgfx",
+        "description": "termgfx",
+        "isExtraImport": true,
+        "detail": "termgfx",
         "documentation": {}
     },
     {
@@ -158,38 +254,6 @@
         "documentation": {}
     },
     {
-        "label": "Tuple",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Union",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
         "label": "Literal",
         "importPath": "typing",
         "description": "typing",
@@ -206,6 +270,22 @@
         "documentation": {}
     },
     {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "Optional",
         "importPath": "typing",
         "description": "typing",
@@ -214,19 +294,64 @@
         "documentation": {}
     },
     {
-        "label": "Vector2",
-        "importPath": "vectors",
-        "description": "vectors",
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
         "isExtraImport": true,
-        "detail": "vectors",
+        "detail": "typing",
         "documentation": {}
     },
     {
-        "label": "Vector2d",
-        "importPath": "vectors",
-        "description": "vectors",
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
         "isExtraImport": true,
-        "detail": "vectors",
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "noise",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "noise",
+        "description": "noise",
+        "detail": "noise",
+        "documentation": {}
+    },
+    {
+        "label": "zlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "zlib",
+        "description": "zlib",
+        "detail": "zlib",
+        "documentation": {}
+    },
+    {
+        "label": "pickle",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pickle",
+        "description": "pickle",
+        "detail": "pickle",
+        "documentation": {}
+    },
+    {
+        "label": "lmdb",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "lmdb",
+        "description": "lmdb",
+        "detail": "lmdb",
         "documentation": {}
     },
     {
@@ -235,6 +360,22 @@
         "description": "enum",
         "isExtraImport": true,
         "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "setup",
+        "importPath": "setuptools",
+        "description": "setuptools",
+        "isExtraImport": true,
+        "detail": "setuptools",
+        "documentation": {}
+    },
+    {
+        "label": "find_packages",
+        "importPath": "setuptools",
+        "description": "setuptools",
+        "isExtraImport": true,
+        "detail": "setuptools",
         "documentation": {}
     },
     {
@@ -377,7 +518,7 @@
         "kind": 5,
         "importPath": "game1.main",
         "description": "game1.main",
-        "peekOfCode": "render = renderer.ConsoleRenderer(tick, onResize, bg=(1,1,1))\nrender.run(60)",
+        "peekOfCode": "render = termgfx.ConsoleRenderer(tick, onResize, bg=(1,1,1))\nrender.run(60)",
         "detail": "game1.main",
         "documentation": {}
     },
@@ -427,12 +568,750 @@
         "documentation": {}
     },
     {
-        "label": "changedSize",
+        "label": "collect_resources",
         "kind": 2,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "def changedSize(size):\n    return\nplayerPos = (0,0)\nplayerRoomPos = (0,0)\ndef tick(size):\n    global playerPos\n    return\nrender = renderer.ConsoleRenderer(tick, changedSize)\nrender.run(60)",
-        "detail": "main",
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "def collect_resources(player_ci):\n    \"\"\"Collect resources based on the terrain the player is standing on\"\"\"\n    global inventory\n    # Define what resources can be collected from each terrain type\n    resource_map = {\n        CI_GRASS: (50, 200, 50),  # Green (plant fiber)\n        CI_ROCK: (150, 150, 150),  # Gray (stone)\n        CI_SAND: (210, 180, 140),  # Tan (sand)\n        CI_WATER: (100, 150, 255),  # Light blue (water)\n        CI_SNOW: (220, 220, 255),   # Light blue-white (snow)",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "showInventory",
+        "kind": 2,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "def showInventory(pixels, size):\n    # Draw inventory at the bottom of the screen\n    if size[1] > INVENTORY_SIZE*2:  # Ensure we have enough space\n        # Draw inventory background\n        for y in range(size[1] - inventory_height, size[1]):\n            for x in range(size[0]):\n                if y < len(pixels) and x < len(pixels[y]):\n                    pixels[y][x] = (40, 40, 40)  # Dark gray background\n        # Calculate inventory slot width\n        slot_width = size[0] // INVENTORY_SIZE",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "height_to_rgb",
+        "kind": 2,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "def height_to_rgb(h):\n    if h < water_level:\n        t = h / water_level\n        r = int(10 + t * (70 - 10))\n        g = int(20 + t * (140 - 20))\n        b = int(100 + t * (220 - 100))\n        return [r, g, b], CI_WATER\n    if h < sand_level:\n        t = (h - water_level) / (sand_level - water_level)\n        r = int(180 + t * (220 - 180))",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "get_chunk_key",
+        "kind": 2,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "def get_chunk_key(world_pos):\n    \"\"\"Convert world position to chunk coordinates\"\"\"\n    return (world_pos[0] // chunk_size[0], world_pos[1] // chunk_size[1])\ndef generate_chunk(chunk_key):\n    cx, cy = chunk_key\n    # Try loading from cache first\n    if chunk_key in terrain_cache:\n        return terrain_cache[chunk_key]\n    # Otherwise generate new\n    chunk = []",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "generate_chunk",
+        "kind": 2,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "def generate_chunk(chunk_key):\n    cx, cy = chunk_key\n    # Try loading from cache first\n    if chunk_key in terrain_cache:\n        return terrain_cache[chunk_key]\n    # Otherwise generate new\n    chunk = []\n    chunkCollisionIndex = []\n    start_x = cx * chunk_size[0]\n    start_y = cy * chunk_size[1]",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "get_env",
+        "kind": 2,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "def get_env() -> lmdb.Environment:\n    global env\n    if env is None:\n        env = lmdb.open(DB_PATH, map_size=int(1e9))\n    return env\ndef save_chunk_to_db(cx, cy, chunk, ci_chunk):\n    key = f\"{cx},{cy}\".encode()\n    data = zlib.compress(pickle.dumps((chunk, ci_chunk)))\n    safe_put(key, data)\ndef load_chunk_from_db(cx, cy):",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "save_chunk_to_db",
+        "kind": 2,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "def save_chunk_to_db(cx, cy, chunk, ci_chunk):\n    key = f\"{cx},{cy}\".encode()\n    data = zlib.compress(pickle.dumps((chunk, ci_chunk)))\n    safe_put(key, data)\ndef load_chunk_from_db(cx, cy):\n    try:\n        key = f\"{cx},{cy}\".encode()\n        with get_env().begin() as txn:\n            data = txn.get(key)\n            if data:",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "load_chunk_from_db",
+        "kind": 2,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "def load_chunk_from_db(cx, cy):\n    try:\n        key = f\"{cx},{cy}\".encode()\n        with get_env().begin() as txn:\n            data = txn.get(key)\n            if data:\n                return pickle.loads(zlib.decompress(data))\n    except:\n        return None\ndef safe_put(key: bytes, data: bytes):",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "safe_put",
+        "kind": 2,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "def safe_put(key: bytes, data: bytes):\n    try:\n        with get_env().begin(write=True) as txn:\n            txn.put(key, data)\n    except lmdb.MapFullError:\n        # Double the map size and retry\n        new_size = get_env().info()[\"map_size\"] * 2\n        get_env().set_mapsize(new_size)\n        safe_put(key, data)\ndef load_game():",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "load_game",
+        "kind": 2,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "def load_game():\n    \"\"\"Load game state from file\"\"\"\n    global terrain_cache, collisionIndexCache, player_position\n    global seed, scale, octaves, persistence, lacunarity, selected_slot\n    # save the previous data if the load function fails\n    prev_terrain_cache = terrain_cache.copy()\n    prev_collisionIndexCache = collisionIndexCache.copy()\n    prev_player_position = player_position.copy()\n    prev_lacunarity = lacunarity\n    prev_persistence = persistence",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "load_metadata",
+        "kind": 2,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "def load_metadata():\n    global player_position, inventory, selected_slot\n    global seed, scale, octaves, persistence, lacunarity\n    with get_env().begin() as txn:\n        data = txn.get(b\"metadata\")\n        if data:\n            state = pickle.loads(data)\n            # Player\n            player_position = state[\"player\"][\"position\"]\n            inventory[:] = state[\"player\"][\"inventory\"]",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "save_game",
+        "kind": 2,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "def save_game():\n    # Save metadata\n    data = {\n        \"player\": {\n            \"position\": player_position,\n            \"inventory\": inventory,\n            \"selected_slot\": selected_slot\n        },\n        \"world\": {\n            \"seed\": seed,",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "save_metadata",
+        "kind": 2,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "def save_metadata():\n    data = {\n        \"player\": {\n            \"position\": player_position,\n            \"inventory\": inventory,\n            \"selected_slot\": selected_slot\n        },\n        \"world\": {\n            \"seed\": seed,\n            \"scale\": scale,",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "get_terrain_at",
+        "kind": 2,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "def get_terrain_at(position, size):\n    \"\"\"Get terrain for viewport, using cached chunks when available\"\"\"\n    viewport_terrain = []\n    for y in range(size[1]):\n        row = []\n        for x in range(size[0]):\n            world_x = position[0] + x\n            world_y = position[1] + y\n            # Get chunk key for this position\n            chunk_key = get_chunk_key((world_x, world_y))",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "handle_input",
+        "kind": 2,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "def handle_input():\n    \"\"\"Check for keyboard input and update position\"\"\"\n    global selected_slot\n    moved = [0, 0]\n    for key in pressedKeys:\n        if not keyboard.is_pressed(key):\n            pressedKeys.remove(key)\n    # Process keyboard input\n    if keyboard.is_pressed(keybinds[\"saveFile\"]) and keybinds[\"saveFile\"] not in pressedKeys:\n        save_game()",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "get_collision_at",
+        "kind": 2,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "def get_collision_at(world_x, world_y):\n    \"\"\"Get collision index at a specific world position\"\"\"\n    chunk_key = get_chunk_key((world_x, world_y))\n    # Generate chunk if not cached\n    if chunk_key not in collisionIndexCache:\n        generate_chunk(chunk_key)\n    # Get local position within chunk\n    chunk_x = world_x % chunk_size[0]\n    chunk_y = world_y % chunk_size[1]\n    # Retrieve collision index",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "tick",
+        "kind": 2,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "def tick(size):\n    \"\"\"Render function called each frame\"\"\"\n    global current_position, player_position, selected_slot\n    moved = handle_input()\n    # Calculate potential new player position\n    new_player_x = player_position[0] + moved[0]\n    new_player_y = player_position[1] + moved[1]\n    # Check collision at new position\n    collision_index = get_collision_at(new_player_x, new_player_y)\n    # Only update position if new location is walkable",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "scale",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "scale = 200.0\noctaves = 5\npersistence = 0.5\nlacunarity = 2.0\nseed = 0 # debug seed\nseed = int(random.random()*1000)\n# Biome thresholds (0..1)\nwater_level = 0.4\nsand_level = 0.45\ngrass_level = 0.7",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "octaves",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "octaves = 5\npersistence = 0.5\nlacunarity = 2.0\nseed = 0 # debug seed\nseed = int(random.random()*1000)\n# Biome thresholds (0..1)\nwater_level = 0.4\nsand_level = 0.45\ngrass_level = 0.7\nrock_level = 0.85",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "persistence",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "persistence = 0.5\nlacunarity = 2.0\nseed = 0 # debug seed\nseed = int(random.random()*1000)\n# Biome thresholds (0..1)\nwater_level = 0.4\nsand_level = 0.45\ngrass_level = 0.7\nrock_level = 0.85\nsnow_level = 0.93",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "lacunarity",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "lacunarity = 2.0\nseed = 0 # debug seed\nseed = int(random.random()*1000)\n# Biome thresholds (0..1)\nwater_level = 0.4\nsand_level = 0.45\ngrass_level = 0.7\nrock_level = 0.85\nsnow_level = 0.93\n# biome collision index",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "seed",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "seed = 0 # debug seed\nseed = int(random.random()*1000)\n# Biome thresholds (0..1)\nwater_level = 0.4\nsand_level = 0.45\ngrass_level = 0.7\nrock_level = 0.85\nsnow_level = 0.93\n# biome collision index\nCI_WATER = 0",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "seed",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "seed = int(random.random()*1000)\n# Biome thresholds (0..1)\nwater_level = 0.4\nsand_level = 0.45\ngrass_level = 0.7\nrock_level = 0.85\nsnow_level = 0.93\n# biome collision index\nCI_WATER = 0\nCI_SAND = 1",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "water_level",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "water_level = 0.4\nsand_level = 0.45\ngrass_level = 0.7\nrock_level = 0.85\nsnow_level = 0.93\n# biome collision index\nCI_WATER = 0\nCI_SAND = 1\nCI_GRASS = 2\nCI_ROCK = 3",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "sand_level",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "sand_level = 0.45\ngrass_level = 0.7\nrock_level = 0.85\nsnow_level = 0.93\n# biome collision index\nCI_WATER = 0\nCI_SAND = 1\nCI_GRASS = 2\nCI_ROCK = 3\nCI_SNOW = 4",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "grass_level",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "grass_level = 0.7\nrock_level = 0.85\nsnow_level = 0.93\n# biome collision index\nCI_WATER = 0\nCI_SAND = 1\nCI_GRASS = 2\nCI_ROCK = 3\nCI_SNOW = 4\nCI_SNOW_TOP = 5",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "rock_level",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "rock_level = 0.85\nsnow_level = 0.93\n# biome collision index\nCI_WATER = 0\nCI_SAND = 1\nCI_GRASS = 2\nCI_ROCK = 3\nCI_SNOW = 4\nCI_SNOW_TOP = 5\n# generated chunks info",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "snow_level",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "snow_level = 0.93\n# biome collision index\nCI_WATER = 0\nCI_SAND = 1\nCI_GRASS = 2\nCI_ROCK = 3\nCI_SNOW = 4\nCI_SNOW_TOP = 5\n# generated chunks info\nDB_PATH = \"world_cache\"",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "CI_WATER",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "CI_WATER = 0\nCI_SAND = 1\nCI_GRASS = 2\nCI_ROCK = 3\nCI_SNOW = 4\nCI_SNOW_TOP = 5\n# generated chunks info\nDB_PATH = \"world_cache\"\nenv = None\ncollisionIndexCache = {}",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "CI_SAND",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "CI_SAND = 1\nCI_GRASS = 2\nCI_ROCK = 3\nCI_SNOW = 4\nCI_SNOW_TOP = 5\n# generated chunks info\nDB_PATH = \"world_cache\"\nenv = None\ncollisionIndexCache = {}\nterrain_cache = {}",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "CI_GRASS",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "CI_GRASS = 2\nCI_ROCK = 3\nCI_SNOW = 4\nCI_SNOW_TOP = 5\n# generated chunks info\nDB_PATH = \"world_cache\"\nenv = None\ncollisionIndexCache = {}\nterrain_cache = {}\n# player info",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "CI_ROCK",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "CI_ROCK = 3\nCI_SNOW = 4\nCI_SNOW_TOP = 5\n# generated chunks info\nDB_PATH = \"world_cache\"\nenv = None\ncollisionIndexCache = {}\nterrain_cache = {}\n# player info\ncurrent_position = [0, 0]  # Use list for mutable updates",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "CI_SNOW",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "CI_SNOW = 4\nCI_SNOW_TOP = 5\n# generated chunks info\nDB_PATH = \"world_cache\"\nenv = None\ncollisionIndexCache = {}\nterrain_cache = {}\n# player info\ncurrent_position = [0, 0]  # Use list for mutable updates\nplayer_position = [0, 0]  # Player's position within the world",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "CI_SNOW_TOP",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "CI_SNOW_TOP = 5\n# generated chunks info\nDB_PATH = \"world_cache\"\nenv = None\ncollisionIndexCache = {}\nterrain_cache = {}\n# player info\ncurrent_position = [0, 0]  # Use list for mutable updates\nplayer_position = [0, 0]  # Player's position within the world\nchunk_size = (80, 40)  # Size of each cached chunk",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "DB_PATH",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "DB_PATH = \"world_cache\"\nenv = None\ncollisionIndexCache = {}\nterrain_cache = {}\n# player info\ncurrent_position = [0, 0]  # Use list for mutable updates\nplayer_position = [0, 0]  # Player's position within the world\nchunk_size = (80, 40)  # Size of each cached chunk\nmove_speed = 1\n# inventory settings",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "env",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "env = None\ncollisionIndexCache = {}\nterrain_cache = {}\n# player info\ncurrent_position = [0, 0]  # Use list for mutable updates\nplayer_position = [0, 0]  # Player's position within the world\nchunk_size = (80, 40)  # Size of each cached chunk\nmove_speed = 1\n# inventory settings\nINVENTORY_SIZE = 9",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "collisionIndexCache",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "collisionIndexCache = {}\nterrain_cache = {}\n# player info\ncurrent_position = [0, 0]  # Use list for mutable updates\nplayer_position = [0, 0]  # Player's position within the world\nchunk_size = (80, 40)  # Size of each cached chunk\nmove_speed = 1\n# inventory settings\nINVENTORY_SIZE = 9\ninventory = [None] * INVENTORY_SIZE  # Each slot can hold an item (represented by a color)",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "terrain_cache",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "terrain_cache = {}\n# player info\ncurrent_position = [0, 0]  # Use list for mutable updates\nplayer_position = [0, 0]  # Player's position within the world\nchunk_size = (80, 40)  # Size of each cached chunk\nmove_speed = 1\n# inventory settings\nINVENTORY_SIZE = 9\ninventory = [None] * INVENTORY_SIZE  # Each slot can hold an item (represented by a color)\nselected_slot = 0  # Currently selected inventory slot",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "current_position",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "current_position = [0, 0]  # Use list for mutable updates\nplayer_position = [0, 0]  # Player's position within the world\nchunk_size = (80, 40)  # Size of each cached chunk\nmove_speed = 1\n# inventory settings\nINVENTORY_SIZE = 9\ninventory = [None] * INVENTORY_SIZE  # Each slot can hold an item (represented by a color)\nselected_slot = 0  # Currently selected inventory slot\ninventory_height = 4\n# keyboard info",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "player_position",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "player_position = [0, 0]  # Player's position within the world\nchunk_size = (80, 40)  # Size of each cached chunk\nmove_speed = 1\n# inventory settings\nINVENTORY_SIZE = 9\ninventory = [None] * INVENTORY_SIZE  # Each slot can hold an item (represented by a color)\nselected_slot = 0  # Currently selected inventory slot\ninventory_height = 4\n# keyboard info\nkeybinds = {",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "chunk_size",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "chunk_size = (80, 40)  # Size of each cached chunk\nmove_speed = 1\n# inventory settings\nINVENTORY_SIZE = 9\ninventory = [None] * INVENTORY_SIZE  # Each slot can hold an item (represented by a color)\nselected_slot = 0  # Currently selected inventory slot\ninventory_height = 4\n# keyboard info\nkeybinds = {\n    \"saveFile\": \"f5\",",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "move_speed",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "move_speed = 1\n# inventory settings\nINVENTORY_SIZE = 9\ninventory = [None] * INVENTORY_SIZE  # Each slot can hold an item (represented by a color)\nselected_slot = 0  # Currently selected inventory slot\ninventory_height = 4\n# keyboard info\nkeybinds = {\n    \"saveFile\": \"f5\",\n    \"reloadSaveFile\": \"f9\",",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "INVENTORY_SIZE",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "INVENTORY_SIZE = 9\ninventory = [None] * INVENTORY_SIZE  # Each slot can hold an item (represented by a color)\nselected_slot = 0  # Currently selected inventory slot\ninventory_height = 4\n# keyboard info\nkeybinds = {\n    \"saveFile\": \"f5\",\n    \"reloadSaveFile\": \"f9\",\n    \"walkForward\": \"w\",\n    \"walkBackward\": \"s\",",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "inventory",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "inventory = [None] * INVENTORY_SIZE  # Each slot can hold an item (represented by a color)\nselected_slot = 0  # Currently selected inventory slot\ninventory_height = 4\n# keyboard info\nkeybinds = {\n    \"saveFile\": \"f5\",\n    \"reloadSaveFile\": \"f9\",\n    \"walkForward\": \"w\",\n    \"walkBackward\": \"s\",\n    \"walkLeft\": \"a\",",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "selected_slot",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "selected_slot = 0  # Currently selected inventory slot\ninventory_height = 4\n# keyboard info\nkeybinds = {\n    \"saveFile\": \"f5\",\n    \"reloadSaveFile\": \"f9\",\n    \"walkForward\": \"w\",\n    \"walkBackward\": \"s\",\n    \"walkLeft\": \"a\",\n    \"walkRight\": \"d\",",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "inventory_height",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "inventory_height = 4\n# keyboard info\nkeybinds = {\n    \"saveFile\": \"f5\",\n    \"reloadSaveFile\": \"f9\",\n    \"walkForward\": \"w\",\n    \"walkBackward\": \"s\",\n    \"walkLeft\": \"a\",\n    \"walkRight\": \"d\",\n    \"increaseInventoryIndex\": \"right\",",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "keybinds",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "keybinds = {\n    \"saveFile\": \"f5\",\n    \"reloadSaveFile\": \"f9\",\n    \"walkForward\": \"w\",\n    \"walkBackward\": \"s\",\n    \"walkLeft\": \"a\",\n    \"walkRight\": \"d\",\n    \"increaseInventoryIndex\": \"right\",\n    \"decreaseInventoryIndex\": \"left\",\n    \"collectResource\": \"space\",",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "pressedKeys",
+        "kind": 5,
+        "importPath": "game2.main",
+        "description": "game2.main",
+        "peekOfCode": "pressedKeys = []\ndef collect_resources(player_ci):\n    \"\"\"Collect resources based on the terrain the player is standing on\"\"\"\n    global inventory\n    # Define what resources can be collected from each terrain type\n    resource_map = {\n        CI_GRASS: (50, 200, 50),  # Green (plant fiber)\n        CI_ROCK: (150, 150, 150),  # Gray (stone)\n        CI_SAND: (210, 180, 140),  # Tan (sand)\n        CI_WATER: (100, 150, 255),  # Light blue (water)",
+        "detail": "game2.main",
+        "documentation": {}
+    },
+    {
+        "label": "ConsoleRenderer",
+        "kind": 6,
+        "importPath": "game2.renderer",
+        "description": "game2.renderer",
+        "peekOfCode": "class ConsoleRenderer():\n    def __init__(self, tick:types.FunctionType = None, sizeChange:types.FunctionType = None, bg: tuple[int, int, int] = (0,0,0), disableConsoleCursor: bool = True):\n        colorama.init()\n        self.__running__ = False\n        self.onTick = tick\n        self.onSizeChange = sizeChange\n        self.__bg__ = bg\n        self.__disable_console_cursor__ = disableConsoleCursor\n        self.__prevFrame__ = [[]]\n    def onTick(self, size: tuple[int, int]) -> list[list[tuple[int, int, int]]]:",
+        "detail": "game2.renderer",
+        "documentation": {}
+    },
+    {
+        "label": "basic_tick",
+        "kind": 2,
+        "importPath": "termgfx.examples.basic_demo",
+        "description": "termgfx.examples.basic_demo",
+        "peekOfCode": "def basic_tick(resolution: Vector2):\n    # Create a simple pattern\n    img = Image(resolution, Color(\"RGB\", [50, 50, 100]))\n    # Draw a red square\n    for y in range(10):\n        for x in range(10):\n            img.set_pixel(Vector2(x + 5, y + 5), RGB_RED)\n    # Draw a green line\n    for i in range(min(20, resolution.x)):\n        img.set_pixel(Vector2(i + 10, 20), RGB_GREEN)",
+        "detail": "termgfx.examples.basic_demo",
+        "documentation": {}
+    },
+    {
+        "label": "Color",
+        "kind": 6,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "class Color:\n    def __init__(self, mode: _ColorMode, val: list[_Number]):\n        self.mode = mode.upper()\n        self._components = []\n        if self.mode == \"RGB\":\n            if len(val) != 3:\n                raise ValueError(\"RGB mode requires 3 values\")\n            self._components = [int(val[0]), int(val[1]), int(val[2])]\n            self.r, self.g, self.b = self._components\n        elif self.mode == \"RGBA\":",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "_Number",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "_Number = Union[int, float]\n_ColorMode = Literal[\"RGB\", \"RGBA\", \"HSV\", \"GRAY\"]\nclass Color:\n    def __init__(self, mode: _ColorMode, val: list[_Number]):\n        self.mode = mode.upper()\n        self._components = []\n        if self.mode == \"RGB\":\n            if len(val) != 3:\n                raise ValueError(\"RGB mode requires 3 values\")\n            self._components = [int(val[0]), int(val[1]), int(val[2])]",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "_ColorMode",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "_ColorMode = Literal[\"RGB\", \"RGBA\", \"HSV\", \"GRAY\"]\nclass Color:\n    def __init__(self, mode: _ColorMode, val: list[_Number]):\n        self.mode = mode.upper()\n        self._components = []\n        if self.mode == \"RGB\":\n            if len(val) != 3:\n                raise ValueError(\"RGB mode requires 3 values\")\n            self._components = [int(val[0]), int(val[1]), int(val[2])]\n            self.r, self.g, self.b = self._components",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGB_RED",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGB_RED = Color(\"RGB\", [255, 0, 0])\nRGB_GREEN = Color(\"RGB\", [0, 255, 0])\nRGB_BLUE = Color(\"RGB\", [0, 0, 255])\nRGB_LIGHTBLUE = Color(\"RGB\", [0, 255, 255])\nRGB_PURPLE = Color(\"RGB\", [255, 0, 255])\nRGB_YELLOW = Color(\"RGB\", [255, 255, 0])\nRGB_WHITE = Color(\"RGB\", [255, 255, 255])\nRGB_BLACK = Color(\"RGB\", [0, 0, 0])\nRGB_GRAY = Color(\"RGB\", [255//2, 255//2, 255//2])\nRGB_DARKBLUE = Color(\"RGB\", [0, 0, 255//2])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGB_GREEN",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGB_GREEN = Color(\"RGB\", [0, 255, 0])\nRGB_BLUE = Color(\"RGB\", [0, 0, 255])\nRGB_LIGHTBLUE = Color(\"RGB\", [0, 255, 255])\nRGB_PURPLE = Color(\"RGB\", [255, 0, 255])\nRGB_YELLOW = Color(\"RGB\", [255, 255, 0])\nRGB_WHITE = Color(\"RGB\", [255, 255, 255])\nRGB_BLACK = Color(\"RGB\", [0, 0, 0])\nRGB_GRAY = Color(\"RGB\", [255//2, 255//2, 255//2])\nRGB_DARKBLUE = Color(\"RGB\", [0, 0, 255//2])\nRGB_DARKRED = Color(\"RGB\", [255//2, 0, 0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGB_BLUE",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGB_BLUE = Color(\"RGB\", [0, 0, 255])\nRGB_LIGHTBLUE = Color(\"RGB\", [0, 255, 255])\nRGB_PURPLE = Color(\"RGB\", [255, 0, 255])\nRGB_YELLOW = Color(\"RGB\", [255, 255, 0])\nRGB_WHITE = Color(\"RGB\", [255, 255, 255])\nRGB_BLACK = Color(\"RGB\", [0, 0, 0])\nRGB_GRAY = Color(\"RGB\", [255//2, 255//2, 255//2])\nRGB_DARKBLUE = Color(\"RGB\", [0, 0, 255//2])\nRGB_DARKRED = Color(\"RGB\", [255//2, 0, 0])\nRGB_DARKGREEN = Color(\"RGB\", [0, 255//2, 0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGB_LIGHTBLUE",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGB_LIGHTBLUE = Color(\"RGB\", [0, 255, 255])\nRGB_PURPLE = Color(\"RGB\", [255, 0, 255])\nRGB_YELLOW = Color(\"RGB\", [255, 255, 0])\nRGB_WHITE = Color(\"RGB\", [255, 255, 255])\nRGB_BLACK = Color(\"RGB\", [0, 0, 0])\nRGB_GRAY = Color(\"RGB\", [255//2, 255//2, 255//2])\nRGB_DARKBLUE = Color(\"RGB\", [0, 0, 255//2])\nRGB_DARKRED = Color(\"RGB\", [255//2, 0, 0])\nRGB_DARKGREEN = Color(\"RGB\", [0, 255//2, 0])\nRGB_DARKPURPLE = Color(\"RGB\", [255//2, 0, 255//2])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGB_PURPLE",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGB_PURPLE = Color(\"RGB\", [255, 0, 255])\nRGB_YELLOW = Color(\"RGB\", [255, 255, 0])\nRGB_WHITE = Color(\"RGB\", [255, 255, 255])\nRGB_BLACK = Color(\"RGB\", [0, 0, 0])\nRGB_GRAY = Color(\"RGB\", [255//2, 255//2, 255//2])\nRGB_DARKBLUE = Color(\"RGB\", [0, 0, 255//2])\nRGB_DARKRED = Color(\"RGB\", [255//2, 0, 0])\nRGB_DARKGREEN = Color(\"RGB\", [0, 255//2, 0])\nRGB_DARKPURPLE = Color(\"RGB\", [255//2, 0, 255//2])\nRGBA_RED = Color(\"RGBA\", [255, 0, 0, 1.0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGB_YELLOW",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGB_YELLOW = Color(\"RGB\", [255, 255, 0])\nRGB_WHITE = Color(\"RGB\", [255, 255, 255])\nRGB_BLACK = Color(\"RGB\", [0, 0, 0])\nRGB_GRAY = Color(\"RGB\", [255//2, 255//2, 255//2])\nRGB_DARKBLUE = Color(\"RGB\", [0, 0, 255//2])\nRGB_DARKRED = Color(\"RGB\", [255//2, 0, 0])\nRGB_DARKGREEN = Color(\"RGB\", [0, 255//2, 0])\nRGB_DARKPURPLE = Color(\"RGB\", [255//2, 0, 255//2])\nRGBA_RED = Color(\"RGBA\", [255, 0, 0, 1.0])\nRGBA_GREEN = Color(\"RGBA\", [0, 255, 0, 1.0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGB_WHITE",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGB_WHITE = Color(\"RGB\", [255, 255, 255])\nRGB_BLACK = Color(\"RGB\", [0, 0, 0])\nRGB_GRAY = Color(\"RGB\", [255//2, 255//2, 255//2])\nRGB_DARKBLUE = Color(\"RGB\", [0, 0, 255//2])\nRGB_DARKRED = Color(\"RGB\", [255//2, 0, 0])\nRGB_DARKGREEN = Color(\"RGB\", [0, 255//2, 0])\nRGB_DARKPURPLE = Color(\"RGB\", [255//2, 0, 255//2])\nRGBA_RED = Color(\"RGBA\", [255, 0, 0, 1.0])\nRGBA_GREEN = Color(\"RGBA\", [0, 255, 0, 1.0])\nRGBA_BLUE = Color(\"RGBA\", [0, 0, 255, 1.0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGB_BLACK",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGB_BLACK = Color(\"RGB\", [0, 0, 0])\nRGB_GRAY = Color(\"RGB\", [255//2, 255//2, 255//2])\nRGB_DARKBLUE = Color(\"RGB\", [0, 0, 255//2])\nRGB_DARKRED = Color(\"RGB\", [255//2, 0, 0])\nRGB_DARKGREEN = Color(\"RGB\", [0, 255//2, 0])\nRGB_DARKPURPLE = Color(\"RGB\", [255//2, 0, 255//2])\nRGBA_RED = Color(\"RGBA\", [255, 0, 0, 1.0])\nRGBA_GREEN = Color(\"RGBA\", [0, 255, 0, 1.0])\nRGBA_BLUE = Color(\"RGBA\", [0, 0, 255, 1.0])\nRGBA_PURPLE = Color(\"RGBA\", [255, 0, 255, 1.0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGB_GRAY",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGB_GRAY = Color(\"RGB\", [255//2, 255//2, 255//2])\nRGB_DARKBLUE = Color(\"RGB\", [0, 0, 255//2])\nRGB_DARKRED = Color(\"RGB\", [255//2, 0, 0])\nRGB_DARKGREEN = Color(\"RGB\", [0, 255//2, 0])\nRGB_DARKPURPLE = Color(\"RGB\", [255//2, 0, 255//2])\nRGBA_RED = Color(\"RGBA\", [255, 0, 0, 1.0])\nRGBA_GREEN = Color(\"RGBA\", [0, 255, 0, 1.0])\nRGBA_BLUE = Color(\"RGBA\", [0, 0, 255, 1.0])\nRGBA_PURPLE = Color(\"RGBA\", [255, 0, 255, 1.0])\nRGBA_LIGHTBLUE = Color(\"RGBA\", [0, 255, 255, 1.0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGB_DARKBLUE",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGB_DARKBLUE = Color(\"RGB\", [0, 0, 255//2])\nRGB_DARKRED = Color(\"RGB\", [255//2, 0, 0])\nRGB_DARKGREEN = Color(\"RGB\", [0, 255//2, 0])\nRGB_DARKPURPLE = Color(\"RGB\", [255//2, 0, 255//2])\nRGBA_RED = Color(\"RGBA\", [255, 0, 0, 1.0])\nRGBA_GREEN = Color(\"RGBA\", [0, 255, 0, 1.0])\nRGBA_BLUE = Color(\"RGBA\", [0, 0, 255, 1.0])\nRGBA_PURPLE = Color(\"RGBA\", [255, 0, 255, 1.0])\nRGBA_LIGHTBLUE = Color(\"RGBA\", [0, 255, 255, 1.0])\nRGBA_YELLOW = Color(\"RGBA\", [255, 255, 0, 1.0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGB_DARKRED",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGB_DARKRED = Color(\"RGB\", [255//2, 0, 0])\nRGB_DARKGREEN = Color(\"RGB\", [0, 255//2, 0])\nRGB_DARKPURPLE = Color(\"RGB\", [255//2, 0, 255//2])\nRGBA_RED = Color(\"RGBA\", [255, 0, 0, 1.0])\nRGBA_GREEN = Color(\"RGBA\", [0, 255, 0, 1.0])\nRGBA_BLUE = Color(\"RGBA\", [0, 0, 255, 1.0])\nRGBA_PURPLE = Color(\"RGBA\", [255, 0, 255, 1.0])\nRGBA_LIGHTBLUE = Color(\"RGBA\", [0, 255, 255, 1.0])\nRGBA_YELLOW = Color(\"RGBA\", [255, 255, 0, 1.0])\nRGBA_WHITE = Color(\"RGBA\", [255, 255, 255, 1.0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGB_DARKGREEN",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGB_DARKGREEN = Color(\"RGB\", [0, 255//2, 0])\nRGB_DARKPURPLE = Color(\"RGB\", [255//2, 0, 255//2])\nRGBA_RED = Color(\"RGBA\", [255, 0, 0, 1.0])\nRGBA_GREEN = Color(\"RGBA\", [0, 255, 0, 1.0])\nRGBA_BLUE = Color(\"RGBA\", [0, 0, 255, 1.0])\nRGBA_PURPLE = Color(\"RGBA\", [255, 0, 255, 1.0])\nRGBA_LIGHTBLUE = Color(\"RGBA\", [0, 255, 255, 1.0])\nRGBA_YELLOW = Color(\"RGBA\", [255, 255, 0, 1.0])\nRGBA_WHITE = Color(\"RGBA\", [255, 255, 255, 1.0])\nRGBA_BLACK = Color(\"RGBA\", [0, 0, 0, 1.0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGB_DARKPURPLE",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGB_DARKPURPLE = Color(\"RGB\", [255//2, 0, 255//2])\nRGBA_RED = Color(\"RGBA\", [255, 0, 0, 1.0])\nRGBA_GREEN = Color(\"RGBA\", [0, 255, 0, 1.0])\nRGBA_BLUE = Color(\"RGBA\", [0, 0, 255, 1.0])\nRGBA_PURPLE = Color(\"RGBA\", [255, 0, 255, 1.0])\nRGBA_LIGHTBLUE = Color(\"RGBA\", [0, 255, 255, 1.0])\nRGBA_YELLOW = Color(\"RGBA\", [255, 255, 0, 1.0])\nRGBA_WHITE = Color(\"RGBA\", [255, 255, 255, 1.0])\nRGBA_BLACK = Color(\"RGBA\", [0, 0, 0, 1.0])\nRGBA_DARKBLUE = Color(\"RGBA\", [0, 0, 255//2, 1.0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGBA_RED",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGBA_RED = Color(\"RGBA\", [255, 0, 0, 1.0])\nRGBA_GREEN = Color(\"RGBA\", [0, 255, 0, 1.0])\nRGBA_BLUE = Color(\"RGBA\", [0, 0, 255, 1.0])\nRGBA_PURPLE = Color(\"RGBA\", [255, 0, 255, 1.0])\nRGBA_LIGHTBLUE = Color(\"RGBA\", [0, 255, 255, 1.0])\nRGBA_YELLOW = Color(\"RGBA\", [255, 255, 0, 1.0])\nRGBA_WHITE = Color(\"RGBA\", [255, 255, 255, 1.0])\nRGBA_BLACK = Color(\"RGBA\", [0, 0, 0, 1.0])\nRGBA_DARKBLUE = Color(\"RGBA\", [0, 0, 255//2, 1.0])\nRGBA_DARKRED = Color(\"RGBA\", [255//2, 0, 0, 1.0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGBA_GREEN",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGBA_GREEN = Color(\"RGBA\", [0, 255, 0, 1.0])\nRGBA_BLUE = Color(\"RGBA\", [0, 0, 255, 1.0])\nRGBA_PURPLE = Color(\"RGBA\", [255, 0, 255, 1.0])\nRGBA_LIGHTBLUE = Color(\"RGBA\", [0, 255, 255, 1.0])\nRGBA_YELLOW = Color(\"RGBA\", [255, 255, 0, 1.0])\nRGBA_WHITE = Color(\"RGBA\", [255, 255, 255, 1.0])\nRGBA_BLACK = Color(\"RGBA\", [0, 0, 0, 1.0])\nRGBA_DARKBLUE = Color(\"RGBA\", [0, 0, 255//2, 1.0])\nRGBA_DARKRED = Color(\"RGBA\", [255//2, 0, 0, 1.0])\nRGBA_DARKGREEN = Color(\"RGBA\", [0, 255//2, 0, 1.0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGBA_BLUE",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGBA_BLUE = Color(\"RGBA\", [0, 0, 255, 1.0])\nRGBA_PURPLE = Color(\"RGBA\", [255, 0, 255, 1.0])\nRGBA_LIGHTBLUE = Color(\"RGBA\", [0, 255, 255, 1.0])\nRGBA_YELLOW = Color(\"RGBA\", [255, 255, 0, 1.0])\nRGBA_WHITE = Color(\"RGBA\", [255, 255, 255, 1.0])\nRGBA_BLACK = Color(\"RGBA\", [0, 0, 0, 1.0])\nRGBA_DARKBLUE = Color(\"RGBA\", [0, 0, 255//2, 1.0])\nRGBA_DARKRED = Color(\"RGBA\", [255//2, 0, 0, 1.0])\nRGBA_DARKGREEN = Color(\"RGBA\", [0, 255//2, 0, 1.0])\nRGBA_DARKPURPLE = Color(\"RGBA\", [255//2, 0, 255//2, 1.0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGBA_PURPLE",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGBA_PURPLE = Color(\"RGBA\", [255, 0, 255, 1.0])\nRGBA_LIGHTBLUE = Color(\"RGBA\", [0, 255, 255, 1.0])\nRGBA_YELLOW = Color(\"RGBA\", [255, 255, 0, 1.0])\nRGBA_WHITE = Color(\"RGBA\", [255, 255, 255, 1.0])\nRGBA_BLACK = Color(\"RGBA\", [0, 0, 0, 1.0])\nRGBA_DARKBLUE = Color(\"RGBA\", [0, 0, 255//2, 1.0])\nRGBA_DARKRED = Color(\"RGBA\", [255//2, 0, 0, 1.0])\nRGBA_DARKGREEN = Color(\"RGBA\", [0, 255//2, 0, 1.0])\nRGBA_DARKPURPLE = Color(\"RGBA\", [255//2, 0, 255//2, 1.0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGBA_LIGHTBLUE",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGBA_LIGHTBLUE = Color(\"RGBA\", [0, 255, 255, 1.0])\nRGBA_YELLOW = Color(\"RGBA\", [255, 255, 0, 1.0])\nRGBA_WHITE = Color(\"RGBA\", [255, 255, 255, 1.0])\nRGBA_BLACK = Color(\"RGBA\", [0, 0, 0, 1.0])\nRGBA_DARKBLUE = Color(\"RGBA\", [0, 0, 255//2, 1.0])\nRGBA_DARKRED = Color(\"RGBA\", [255//2, 0, 0, 1.0])\nRGBA_DARKGREEN = Color(\"RGBA\", [0, 255//2, 0, 1.0])\nRGBA_DARKPURPLE = Color(\"RGBA\", [255//2, 0, 255//2, 1.0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGBA_YELLOW",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGBA_YELLOW = Color(\"RGBA\", [255, 255, 0, 1.0])\nRGBA_WHITE = Color(\"RGBA\", [255, 255, 255, 1.0])\nRGBA_BLACK = Color(\"RGBA\", [0, 0, 0, 1.0])\nRGBA_DARKBLUE = Color(\"RGBA\", [0, 0, 255//2, 1.0])\nRGBA_DARKRED = Color(\"RGBA\", [255//2, 0, 0, 1.0])\nRGBA_DARKGREEN = Color(\"RGBA\", [0, 255//2, 0, 1.0])\nRGBA_DARKPURPLE = Color(\"RGBA\", [255//2, 0, 255//2, 1.0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGBA_WHITE",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGBA_WHITE = Color(\"RGBA\", [255, 255, 255, 1.0])\nRGBA_BLACK = Color(\"RGBA\", [0, 0, 0, 1.0])\nRGBA_DARKBLUE = Color(\"RGBA\", [0, 0, 255//2, 1.0])\nRGBA_DARKRED = Color(\"RGBA\", [255//2, 0, 0, 1.0])\nRGBA_DARKGREEN = Color(\"RGBA\", [0, 255//2, 0, 1.0])\nRGBA_DARKPURPLE = Color(\"RGBA\", [255//2, 0, 255//2, 1.0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGBA_BLACK",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGBA_BLACK = Color(\"RGBA\", [0, 0, 0, 1.0])\nRGBA_DARKBLUE = Color(\"RGBA\", [0, 0, 255//2, 1.0])\nRGBA_DARKRED = Color(\"RGBA\", [255//2, 0, 0, 1.0])\nRGBA_DARKGREEN = Color(\"RGBA\", [0, 255//2, 0, 1.0])\nRGBA_DARKPURPLE = Color(\"RGBA\", [255//2, 0, 255//2, 1.0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGBA_DARKBLUE",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGBA_DARKBLUE = Color(\"RGBA\", [0, 0, 255//2, 1.0])\nRGBA_DARKRED = Color(\"RGBA\", [255//2, 0, 0, 1.0])\nRGBA_DARKGREEN = Color(\"RGBA\", [0, 255//2, 0, 1.0])\nRGBA_DARKPURPLE = Color(\"RGBA\", [255//2, 0, 255//2, 1.0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGBA_DARKRED",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGBA_DARKRED = Color(\"RGBA\", [255//2, 0, 0, 1.0])\nRGBA_DARKGREEN = Color(\"RGBA\", [0, 255//2, 0, 1.0])\nRGBA_DARKPURPLE = Color(\"RGBA\", [255//2, 0, 255//2, 1.0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGBA_DARKGREEN",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGBA_DARKGREEN = Color(\"RGBA\", [0, 255//2, 0, 1.0])\nRGBA_DARKPURPLE = Color(\"RGBA\", [255//2, 0, 255//2, 1.0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RGBA_DARKPURPLE",
+        "kind": 5,
+        "importPath": "termgfx.colors",
+        "description": "termgfx.colors",
+        "peekOfCode": "RGBA_DARKPURPLE = Color(\"RGBA\", [255//2, 0, 255//2, 1.0])",
+        "detail": "termgfx.colors",
+        "documentation": {}
+    },
+    {
+        "label": "ConsoleRenderer",
+        "kind": 6,
+        "importPath": "termgfx.renderer",
+        "description": "termgfx.renderer",
+        "peekOfCode": "class ConsoleRenderer():\n    def __init__(self, tick: Optional[types.FunctionType] = None, \n                 sizeChange: Optional[types.FunctionType] = None, \n                 bg: Color = Color(\"RGB\", [0, 0, 0]), \n                 disableConsoleCursor: bool = True):\n        colorama.init()\n        self.__running__ = False\n        self.onTick = tick\n        self.onSizeChange = sizeChange\n        self.__bg__ = bg",
+        "detail": "termgfx.renderer",
+        "documentation": {}
+    },
+    {
+        "label": "REPEAT_MODE",
+        "kind": 6,
+        "importPath": "termgfx.textures",
+        "description": "termgfx.textures",
+        "peekOfCode": "class REPEAT_MODE(str, Enum):\n    INFINITE = \"INFINITE\"\n    FINITE = \"FINITE\"\n    DISABLE = \"DISABLE\"\nclass Image:\n    def __init__(self, size: Vector2, initial_color: Optional[Color] = None):\n        self.width = int(size.x)\n        self.height = int(size.y)\n        if initial_color is None:\n            initial_color = Color(\"RGB\", [0, 0, 0])",
+        "detail": "termgfx.textures",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "kind": 6,
+        "importPath": "termgfx.textures",
+        "description": "termgfx.textures",
+        "peekOfCode": "class Image:\n    def __init__(self, size: Vector2, initial_color: Optional[Color] = None):\n        self.width = int(size.x)\n        self.height = int(size.y)\n        if initial_color is None:\n            initial_color = Color(\"RGB\", [0, 0, 0])\n        # Create a 2D list of Color objects\n        self.dataArray: List[List[Color]] = [\n            [Color(initial_color.mode, list(initial_color)) for _ in range(self.width)]\n            for _ in range(self.height)",
+        "detail": "termgfx.textures",
+        "documentation": {}
+    },
+    {
+        "label": "Texture",
+        "kind": 6,
+        "importPath": "termgfx.textures",
+        "description": "termgfx.textures",
+        "peekOfCode": "class Texture:\n    def __init__(self, data: Color | Image, repeatMode: Optional[REPEAT_MODE] = None):\n        self.__repeat_mode__ = repeatMode\n        if isinstance(data, Color):\n            self.__size__ = Vector2(1, 1)\n            if self.__repeat_mode__ is None:\n                self.__repeat_mode__ = REPEAT_MODE.INFINITE\n            self.__met__ = [[data]]\n        elif isinstance(data, Image):\n            self.__size__ = Vector2(data.width, data.height)",
+        "detail": "termgfx.textures",
+        "documentation": {}
+    },
+    {
+        "label": "Vector2",
+        "kind": 6,
+        "importPath": "termgfx.vectors",
+        "description": "termgfx.vectors",
+        "peekOfCode": "class Vector2:\n    def __init__(self, x: float = 0.0, y: float = 0.0):\n        self.x = x\n        self.y = y\n    def __add__(self, other: 'Vector2') -> 'Vector2':\n        return Vector2(self.x + other.x, self.y + other.y)\n    def __sub__(self, other: 'Vector2') -> 'Vector2':\n        return Vector2(self.x - other.x, self.y - other.y)\n    def __mul__(self, scalar: float) -> 'Vector2':\n        if isinstance(scalar, float):",
+        "detail": "termgfx.vectors",
         "documentation": {}
     },
     {
@@ -440,25 +1319,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def tick(size):\n    global playerPos\n    return\nrender = renderer.ConsoleRenderer(tick, changedSize)\nrender.run(60)",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "playerPos",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "playerPos = (0,0)\nplayerRoomPos = (0,0)\ndef tick(size):\n    global playerPos\n    return\nrender = renderer.ConsoleRenderer(tick, changedSize)\nrender.run(60)",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "playerRoomPos",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "playerRoomPos = (0,0)\ndef tick(size):\n    global playerPos\n    return\nrender = renderer.ConsoleRenderer(tick, changedSize)\nrender.run(60)",
+        "peekOfCode": "def tick(resolution: vectors.Vector2) -> textures.Texture:\n    img = textures.Image(resolution // 10, colors.RGB_BLUE)\n    img.set_pixel(resolution // 20, colors.RGB_YELLOW)\n    return textures.Texture(img, textures.REPEAT_MODE.INFINITE)\nrender = renderer.ConsoleRenderer(tick)\nrender.run(fps=30)",
         "detail": "main",
         "documentation": {}
     },
@@ -467,116 +1328,8 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "render = renderer.ConsoleRenderer(tick, changedSize)\nrender.run(60)",
+        "peekOfCode": "render = renderer.ConsoleRenderer(tick)\nrender.run(fps=30)",
         "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "ConsoleRenderer",
-        "kind": 6,
-        "importPath": "renderer",
-        "description": "renderer",
-        "peekOfCode": "class ConsoleRenderer():\n    def __init__(self, tick:types.FunctionType = None, sizeChange:types.FunctionType = None, bg: tuple[int, int, int] = (0,0,0), disableConsoleCursor: bool = True):\n        colorama.init()\n        self.__running__ = False\n        self.onTick = tick\n        self.onSizeChange = sizeChange\n        self.__bg__ = bg\n        self.__disable_console_cursor__ = disableConsoleCursor\n        self.__prevFrame__ = [[]]\n    def onTick(self, size: tuple[int, int]) -> list[list[tuple[int, int, int]]]:",
-        "detail": "renderer",
-        "documentation": {}
-    },
-    {
-        "label": "Color",
-        "kind": 6,
-        "importPath": "test",
-        "description": "test",
-        "peekOfCode": "class Color:\n    def __init__(self, \n                 r: float = 0.0, \n                 g: float = 0.0, \n                 b: float = 0.0, \n                 a: float = 1.0, \n                 h: Optional[float] = None, \n                 s: Optional[float] = None, \n                 l: Optional[float] = None):\n        \"\"\"",
-        "detail": "test",
-        "documentation": {}
-    },
-    {
-        "label": "Texture",
-        "kind": 6,
-        "importPath": "test",
-        "description": "test",
-        "peekOfCode": "class Texture:\n    def __init__(self, source: Union[Color, List[List[Color]]], width: Optional[int] = None, height: Optional[int] = None):\n        \"\"\"\n        Represents a texture that can be either:\n        - A solid color\n        - An image (2D grid of Color objects)\n        \"\"\"\n        if isinstance(source, Color):\n            self.is_solid = True\n            self.color = source",
-        "detail": "test",
-        "documentation": {}
-    },
-    {
-        "label": "Rect",
-        "kind": 6,
-        "importPath": "test",
-        "description": "test",
-        "peekOfCode": "class Rect:\n    def __init__(self, \n                 position: Vector2, \n                 size: Vector2, \n                 rotation: float = 0.0):\n        \"\"\"\n        Represents a rectangle with position, size, and rotation\n        \"\"\"\n        self.__position__ = position\n        self.__size__ = size",
-        "detail": "test",
-        "documentation": {}
-    },
-    {
-        "label": "Collision",
-        "kind": 6,
-        "importPath": "test",
-        "description": "test",
-        "peekOfCode": "class Collision:\n    def __init__(self, rect1: Rect, rect2: Rect):\n        \"\"\"Represents a collision between two rectangles\"\"\"\n        self.rect1 = rect1\n        self.rect2 = rect2\n        self._normal = (0.0, 0.0)\n        self._depth = 0.0\n        self._calculate_collision()\n    def _calculate_collision(self):\n        \"\"\"Calculate collision details using Separating Axis Theorem\"\"\"",
-        "detail": "test",
-        "documentation": {}
-    },
-    {
-        "label": "REPEAT_MODE",
-        "kind": 6,
-        "importPath": "textures",
-        "description": "textures",
-        "peekOfCode": "class REPEAT_MODE(str, Enum):\n    INFINITE = \"INFINITE\"\n    FINITE = \"FINITE\"\n    DISABLE = \"DISABLE\"\nclass Color:\n    mode: _ColorMode\n    def __init__(self, mode: _ColorMode, val: list[_Number]):\n        self.mode = mode.upper()  # type: ignore\n        if self.mode == \"RGB\":\n            if len(val) != 3:",
-        "detail": "textures",
-        "documentation": {}
-    },
-    {
-        "label": "Color",
-        "kind": 6,
-        "importPath": "textures",
-        "description": "textures",
-        "peekOfCode": "class Color:\n    mode: _ColorMode\n    def __init__(self, mode: _ColorMode, val: list[_Number]):\n        self.mode = mode.upper()  # type: ignore\n        if self.mode == \"RGB\":\n            if len(val) != 3:\n                raise ValueError(\"RGB mode requires 3 values\")\n            self.r: _Number = val[0]\n            self.g: _Number = val[1]\n            self.b: _Number = val[2]",
-        "detail": "textures",
-        "documentation": {}
-    },
-    {
-        "label": "Image",
-        "kind": 6,
-        "importPath": "textures",
-        "description": "textures",
-        "peekOfCode": "class Image():\n    pass\nclass Texture():\n    def __init__(self, data: Color | Image, repeatMode: Optional[REPEAT_MODE] = None):\n        self.__repeat_mode__ = repeatMode\n        if type(data) == Color:\n            self.__size__ = Vector2d(1,1)\n            if self.__repeat_mode__ == None:\n                self.__repeat_mode__ = REPEAT_MODE.INFINITE\n            self.__met__ = [[data]]",
-        "detail": "textures",
-        "documentation": {}
-    },
-    {
-        "label": "Texture",
-        "kind": 6,
-        "importPath": "textures",
-        "description": "textures",
-        "peekOfCode": "class Texture():\n    def __init__(self, data: Color | Image, repeatMode: Optional[REPEAT_MODE] = None):\n        self.__repeat_mode__ = repeatMode\n        if type(data) == Color:\n            self.__size__ = Vector2d(1,1)\n            if self.__repeat_mode__ == None:\n                self.__repeat_mode__ = REPEAT_MODE.INFINITE\n            self.__met__ = [[data]]\n        elif type(data) == Image:\n            if self.__repeat_mode__ == None:",
-        "detail": "textures",
-        "documentation": {}
-    },
-    {
-        "label": "_ColorMode",
-        "kind": 5,
-        "importPath": "textures",
-        "description": "textures",
-        "peekOfCode": "_ColorMode = Literal[\"RGB\", \"RGBA\", \"HSV\", \"GRAY\"]\n_Number = Union[int, float]\nclass REPEAT_MODE(str, Enum):\n    INFINITE = \"INFINITE\"\n    FINITE = \"FINITE\"\n    DISABLE = \"DISABLE\"\nclass Color:\n    mode: _ColorMode\n    def __init__(self, mode: _ColorMode, val: list[_Number]):\n        self.mode = mode.upper()  # type: ignore",
-        "detail": "textures",
-        "documentation": {}
-    },
-    {
-        "label": "_Number",
-        "kind": 5,
-        "importPath": "textures",
-        "description": "textures",
-        "peekOfCode": "_Number = Union[int, float]\nclass REPEAT_MODE(str, Enum):\n    INFINITE = \"INFINITE\"\n    FINITE = \"FINITE\"\n    DISABLE = \"DISABLE\"\nclass Color:\n    mode: _ColorMode\n    def __init__(self, mode: _ColorMode, val: list[_Number]):\n        self.mode = mode.upper()  # type: ignore\n        if self.mode == \"RGB\":",
-        "detail": "textures",
-        "documentation": {}
-    },
-    {
-        "label": "Vector2",
-        "kind": 6,
-        "importPath": "vectors",
-        "description": "vectors",
-        "peekOfCode": "class Vector2:\n    def __init__(self, x: float = 0.0, y: float = 0.0):\n        self.x = x\n        self.y = y\n    def __add__(self, other: 'Vector2') -> 'Vector2':\n        return Vector2(self.x + other.x, self.y + other.y)\n    def __sub__(self, other: 'Vector2') -> 'Vector2':\n        return Vector2(self.x - other.x, self.y - other.y)\n    def __mul__(self, scalar: float) -> 'Vector2':\n        return Vector2(self.x * scalar, self.y * scalar)",
-        "detail": "vectors",
         "documentation": {}
     }
 ]

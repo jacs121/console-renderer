@@ -1,0 +1,577 @@
+[
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "noise",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "noise",
+        "description": "noise",
+        "detail": "noise",
+        "documentation": {}
+    },
+    {
+        "label": "keyboard",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "keyboard",
+        "description": "keyboard",
+        "detail": "keyboard",
+        "documentation": {}
+    },
+    {
+        "label": "ConsoleRenderer",
+        "importPath": "renderer",
+        "description": "renderer",
+        "isExtraImport": true,
+        "detail": "renderer",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "zlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "zlib",
+        "description": "zlib",
+        "detail": "zlib",
+        "documentation": {}
+    },
+    {
+        "label": "pickle",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pickle",
+        "description": "pickle",
+        "detail": "pickle",
+        "documentation": {}
+    },
+    {
+        "label": "lmdb",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "lmdb",
+        "description": "lmdb",
+        "detail": "lmdb",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "colorama",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "colorama",
+        "description": "colorama",
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "types",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "types",
+        "description": "types",
+        "detail": "types",
+        "documentation": {}
+    },
+    {
+        "label": "ctypes",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "ctypes",
+        "description": "ctypes",
+        "detail": "ctypes",
+        "documentation": {}
+    },
+    {
+        "label": "collect_resources",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def collect_resources(player_ci):\n    \"\"\"Collect resources based on the terrain the player is standing on\"\"\"\n    global inventory\n    # Define what resources can be collected from each terrain type\n    resource_map = {\n        CI_GRASS: (50, 200, 50),  # Green (plant fiber)\n        CI_ROCK: (150, 150, 150),  # Gray (stone)\n        CI_SAND: (210, 180, 140),  # Tan (sand)\n        CI_WATER: (100, 150, 255),  # Light blue (water)\n        CI_SNOW: (220, 220, 255),   # Light blue-white (snow)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "showInventory",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def showInventory(pixels, size):\n    # Draw inventory at the bottom of the screen\n    if size[1] > INVENTORY_SIZE*2:  # Ensure we have enough space\n        # Draw inventory background\n        for y in range(size[1] - inventory_height, size[1]):\n            for x in range(size[0]):\n                if y < len(pixels) and x < len(pixels[y]):\n                    pixels[y][x] = (40, 40, 40)  # Dark gray background\n        # Calculate inventory slot width\n        slot_width = size[0] // INVENTORY_SIZE",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "height_to_rgb",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def height_to_rgb(h):\n    if h < water_level:\n        t = h / water_level\n        r = int(10 + t * (70 - 10))\n        g = int(20 + t * (140 - 20))\n        b = int(100 + t * (220 - 100))\n        return [r, g, b], CI_WATER\n    if h < sand_level:\n        t = (h - water_level) / (sand_level - water_level)\n        r = int(180 + t * (220 - 180))",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "get_chunk_key",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def get_chunk_key(world_pos):\n    \"\"\"Convert world position to chunk coordinates\"\"\"\n    return (world_pos[0] // chunk_size[0], world_pos[1] // chunk_size[1])\ndef generate_chunk(chunk_key):\n    cx, cy = chunk_key\n    # Try loading from cache first\n    if chunk_key in terrain_cache:\n        return terrain_cache[chunk_key]\n    # Otherwise generate new\n    chunk = []",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "generate_chunk",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def generate_chunk(chunk_key):\n    cx, cy = chunk_key\n    # Try loading from cache first\n    if chunk_key in terrain_cache:\n        return terrain_cache[chunk_key]\n    # Otherwise generate new\n    chunk = []\n    chunkCollisionIndex = []\n    start_x = cx * chunk_size[0]\n    start_y = cy * chunk_size[1]",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "get_env",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def get_env() -> lmdb.Environment:\n    global env\n    if env is None:\n        env = lmdb.open(DB_PATH, map_size=int(1e9))\n    return env\ndef save_chunk_to_db(cx, cy, chunk, ci_chunk):\n    key = f\"{cx},{cy}\".encode()\n    data = zlib.compress(pickle.dumps((chunk, ci_chunk)))\n    safe_put(key, data)\ndef load_chunk_from_db(cx, cy):",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "save_chunk_to_db",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def save_chunk_to_db(cx, cy, chunk, ci_chunk):\n    key = f\"{cx},{cy}\".encode()\n    data = zlib.compress(pickle.dumps((chunk, ci_chunk)))\n    safe_put(key, data)\ndef load_chunk_from_db(cx, cy):\n    try:\n        key = f\"{cx},{cy}\".encode()\n        with get_env().begin() as txn:\n            data = txn.get(key)\n            if data:",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "load_chunk_from_db",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def load_chunk_from_db(cx, cy):\n    try:\n        key = f\"{cx},{cy}\".encode()\n        with get_env().begin() as txn:\n            data = txn.get(key)\n            if data:\n                return pickle.loads(zlib.decompress(data))\n    except:\n        return None\ndef safe_put(key: bytes, data: bytes):",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "safe_put",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def safe_put(key: bytes, data: bytes):\n    try:\n        with get_env().begin(write=True) as txn:\n            txn.put(key, data)\n    except lmdb.MapFullError:\n        # Double the map size and retry\n        new_size = get_env().info()[\"map_size\"] * 2\n        get_env().set_mapsize(new_size)\n        safe_put(key, data)\ndef load_game():",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "load_game",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def load_game():\n    \"\"\"Load game state from file\"\"\"\n    global terrain_cache, collisionIndexCache, player_position\n    global seed, scale, octaves, persistence, lacunarity, selected_slot\n    # save the previous data if the load function fails\n    prev_terrain_cache = terrain_cache.copy()\n    prev_collisionIndexCache = collisionIndexCache.copy()\n    prev_player_position = player_position.copy()\n    prev_lacunarity = lacunarity\n    prev_persistence = persistence",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "load_metadata",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def load_metadata():\n    global player_position, inventory, selected_slot\n    global seed, scale, octaves, persistence, lacunarity\n    with get_env().begin() as txn:\n        data = txn.get(b\"metadata\")\n        if data:\n            state = pickle.loads(data)\n            # Player\n            player_position = state[\"player\"][\"position\"]\n            inventory[:] = state[\"player\"][\"inventory\"]",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "save_game",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def save_game():\n    # Save metadata\n    data = {\n        \"player\": {\n            \"position\": player_position,\n            \"inventory\": inventory,\n            \"selected_slot\": selected_slot\n        },\n        \"world\": {\n            \"seed\": seed,",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "save_metadata",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def save_metadata():\n    data = {\n        \"player\": {\n            \"position\": player_position,\n            \"inventory\": inventory,\n            \"selected_slot\": selected_slot\n        },\n        \"world\": {\n            \"seed\": seed,\n            \"scale\": scale,",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "get_terrain_at",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def get_terrain_at(position, size):\n    \"\"\"Get terrain for viewport, using cached chunks when available\"\"\"\n    viewport_terrain = []\n    for y in range(size[1]):\n        row = []\n        for x in range(size[0]):\n            world_x = position[0] + x\n            world_y = position[1] + y\n            # Get chunk key for this position\n            chunk_key = get_chunk_key((world_x, world_y))",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "handle_input",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def handle_input():\n    \"\"\"Check for keyboard input and update position\"\"\"\n    global selected_slot\n    moved = [0, 0]\n    for key in pressedKeys:\n        if not keyboard.is_pressed(key):\n            pressedKeys.remove(key)\n    # Process keyboard input\n    if keyboard.is_pressed(keybinds[\"saveFile\"]) and keybinds[\"saveFile\"] not in pressedKeys:\n        save_game()",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "get_collision_at",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def get_collision_at(world_x, world_y):\n    \"\"\"Get collision index at a specific world position\"\"\"\n    chunk_key = get_chunk_key((world_x, world_y))\n    # Generate chunk if not cached\n    if chunk_key not in collisionIndexCache:\n        generate_chunk(chunk_key)\n    # Get local position within chunk\n    chunk_x = world_x % chunk_size[0]\n    chunk_y = world_y % chunk_size[1]\n    # Retrieve collision index",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "tick",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def tick(size):\n    \"\"\"Render function called each frame\"\"\"\n    global current_position, player_position, selected_slot\n    moved = handle_input()\n    # Calculate potential new player position\n    new_player_x = player_position[0] + moved[0]\n    new_player_y = player_position[1] + moved[1]\n    # Check collision at new position\n    collision_index = get_collision_at(new_player_x, new_player_y)\n    # Only update position if new location is walkable",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "scale",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "scale = 200.0\noctaves = 5\npersistence = 0.5\nlacunarity = 2.0\nseed = 0 # debug seed\nseed = int(random.random()*1000)\n# Biome thresholds (0..1)\nwater_level = 0.4\nsand_level = 0.45\ngrass_level = 0.7",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "octaves",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "octaves = 5\npersistence = 0.5\nlacunarity = 2.0\nseed = 0 # debug seed\nseed = int(random.random()*1000)\n# Biome thresholds (0..1)\nwater_level = 0.4\nsand_level = 0.45\ngrass_level = 0.7\nrock_level = 0.85",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "persistence",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "persistence = 0.5\nlacunarity = 2.0\nseed = 0 # debug seed\nseed = int(random.random()*1000)\n# Biome thresholds (0..1)\nwater_level = 0.4\nsand_level = 0.45\ngrass_level = 0.7\nrock_level = 0.85\nsnow_level = 0.93",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "lacunarity",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "lacunarity = 2.0\nseed = 0 # debug seed\nseed = int(random.random()*1000)\n# Biome thresholds (0..1)\nwater_level = 0.4\nsand_level = 0.45\ngrass_level = 0.7\nrock_level = 0.85\nsnow_level = 0.93\n# biome collision index",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "seed",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "seed = 0 # debug seed\nseed = int(random.random()*1000)\n# Biome thresholds (0..1)\nwater_level = 0.4\nsand_level = 0.45\ngrass_level = 0.7\nrock_level = 0.85\nsnow_level = 0.93\n# biome collision index\nCI_WATER = 0",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "seed",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "seed = int(random.random()*1000)\n# Biome thresholds (0..1)\nwater_level = 0.4\nsand_level = 0.45\ngrass_level = 0.7\nrock_level = 0.85\nsnow_level = 0.93\n# biome collision index\nCI_WATER = 0\nCI_SAND = 1",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "water_level",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "water_level = 0.4\nsand_level = 0.45\ngrass_level = 0.7\nrock_level = 0.85\nsnow_level = 0.93\n# biome collision index\nCI_WATER = 0\nCI_SAND = 1\nCI_GRASS = 2\nCI_ROCK = 3",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "sand_level",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "sand_level = 0.45\ngrass_level = 0.7\nrock_level = 0.85\nsnow_level = 0.93\n# biome collision index\nCI_WATER = 0\nCI_SAND = 1\nCI_GRASS = 2\nCI_ROCK = 3\nCI_SNOW = 4",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "grass_level",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "grass_level = 0.7\nrock_level = 0.85\nsnow_level = 0.93\n# biome collision index\nCI_WATER = 0\nCI_SAND = 1\nCI_GRASS = 2\nCI_ROCK = 3\nCI_SNOW = 4\nCI_SNOW_TOP = 5",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "rock_level",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "rock_level = 0.85\nsnow_level = 0.93\n# biome collision index\nCI_WATER = 0\nCI_SAND = 1\nCI_GRASS = 2\nCI_ROCK = 3\nCI_SNOW = 4\nCI_SNOW_TOP = 5\n# generated chunks info",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "snow_level",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "snow_level = 0.93\n# biome collision index\nCI_WATER = 0\nCI_SAND = 1\nCI_GRASS = 2\nCI_ROCK = 3\nCI_SNOW = 4\nCI_SNOW_TOP = 5\n# generated chunks info\nDB_PATH = \"world_cache\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "CI_WATER",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "CI_WATER = 0\nCI_SAND = 1\nCI_GRASS = 2\nCI_ROCK = 3\nCI_SNOW = 4\nCI_SNOW_TOP = 5\n# generated chunks info\nDB_PATH = \"world_cache\"\nenv = None\ncollisionIndexCache = {}",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "CI_SAND",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "CI_SAND = 1\nCI_GRASS = 2\nCI_ROCK = 3\nCI_SNOW = 4\nCI_SNOW_TOP = 5\n# generated chunks info\nDB_PATH = \"world_cache\"\nenv = None\ncollisionIndexCache = {}\nterrain_cache = {}",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "CI_GRASS",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "CI_GRASS = 2\nCI_ROCK = 3\nCI_SNOW = 4\nCI_SNOW_TOP = 5\n# generated chunks info\nDB_PATH = \"world_cache\"\nenv = None\ncollisionIndexCache = {}\nterrain_cache = {}\n# player info",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "CI_ROCK",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "CI_ROCK = 3\nCI_SNOW = 4\nCI_SNOW_TOP = 5\n# generated chunks info\nDB_PATH = \"world_cache\"\nenv = None\ncollisionIndexCache = {}\nterrain_cache = {}\n# player info\ncurrent_position = [0, 0]  # Use list for mutable updates",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "CI_SNOW",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "CI_SNOW = 4\nCI_SNOW_TOP = 5\n# generated chunks info\nDB_PATH = \"world_cache\"\nenv = None\ncollisionIndexCache = {}\nterrain_cache = {}\n# player info\ncurrent_position = [0, 0]  # Use list for mutable updates\nplayer_position = [0, 0]  # Player's position within the world",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "CI_SNOW_TOP",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "CI_SNOW_TOP = 5\n# generated chunks info\nDB_PATH = \"world_cache\"\nenv = None\ncollisionIndexCache = {}\nterrain_cache = {}\n# player info\ncurrent_position = [0, 0]  # Use list for mutable updates\nplayer_position = [0, 0]  # Player's position within the world\nchunk_size = (80, 40)  # Size of each cached chunk",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "DB_PATH",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "DB_PATH = \"world_cache\"\nenv = None\ncollisionIndexCache = {}\nterrain_cache = {}\n# player info\ncurrent_position = [0, 0]  # Use list for mutable updates\nplayer_position = [0, 0]  # Player's position within the world\nchunk_size = (80, 40)  # Size of each cached chunk\nmove_speed = 1\n# inventory settings",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "env",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "env = None\ncollisionIndexCache = {}\nterrain_cache = {}\n# player info\ncurrent_position = [0, 0]  # Use list for mutable updates\nplayer_position = [0, 0]  # Player's position within the world\nchunk_size = (80, 40)  # Size of each cached chunk\nmove_speed = 1\n# inventory settings\nINVENTORY_SIZE = 9",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "collisionIndexCache",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "collisionIndexCache = {}\nterrain_cache = {}\n# player info\ncurrent_position = [0, 0]  # Use list for mutable updates\nplayer_position = [0, 0]  # Player's position within the world\nchunk_size = (80, 40)  # Size of each cached chunk\nmove_speed = 1\n# inventory settings\nINVENTORY_SIZE = 9\ninventory = [None] * INVENTORY_SIZE  # Each slot can hold an item (represented by a color)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "terrain_cache",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "terrain_cache = {}\n# player info\ncurrent_position = [0, 0]  # Use list for mutable updates\nplayer_position = [0, 0]  # Player's position within the world\nchunk_size = (80, 40)  # Size of each cached chunk\nmove_speed = 1\n# inventory settings\nINVENTORY_SIZE = 9\ninventory = [None] * INVENTORY_SIZE  # Each slot can hold an item (represented by a color)\nselected_slot = 0  # Currently selected inventory slot",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "current_position",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "current_position = [0, 0]  # Use list for mutable updates\nplayer_position = [0, 0]  # Player's position within the world\nchunk_size = (80, 40)  # Size of each cached chunk\nmove_speed = 1\n# inventory settings\nINVENTORY_SIZE = 9\ninventory = [None] * INVENTORY_SIZE  # Each slot can hold an item (represented by a color)\nselected_slot = 0  # Currently selected inventory slot\ninventory_height = 4\n# keyboard info",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "player_position",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "player_position = [0, 0]  # Player's position within the world\nchunk_size = (80, 40)  # Size of each cached chunk\nmove_speed = 1\n# inventory settings\nINVENTORY_SIZE = 9\ninventory = [None] * INVENTORY_SIZE  # Each slot can hold an item (represented by a color)\nselected_slot = 0  # Currently selected inventory slot\ninventory_height = 4\n# keyboard info\nkeybinds = {",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "chunk_size",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "chunk_size = (80, 40)  # Size of each cached chunk\nmove_speed = 1\n# inventory settings\nINVENTORY_SIZE = 9\ninventory = [None] * INVENTORY_SIZE  # Each slot can hold an item (represented by a color)\nselected_slot = 0  # Currently selected inventory slot\ninventory_height = 4\n# keyboard info\nkeybinds = {\n    \"saveFile\": \"f5\",",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "move_speed",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "move_speed = 1\n# inventory settings\nINVENTORY_SIZE = 9\ninventory = [None] * INVENTORY_SIZE  # Each slot can hold an item (represented by a color)\nselected_slot = 0  # Currently selected inventory slot\ninventory_height = 4\n# keyboard info\nkeybinds = {\n    \"saveFile\": \"f5\",\n    \"reloadSaveFile\": \"f9\",",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "INVENTORY_SIZE",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "INVENTORY_SIZE = 9\ninventory = [None] * INVENTORY_SIZE  # Each slot can hold an item (represented by a color)\nselected_slot = 0  # Currently selected inventory slot\ninventory_height = 4\n# keyboard info\nkeybinds = {\n    \"saveFile\": \"f5\",\n    \"reloadSaveFile\": \"f9\",\n    \"walkForward\": \"w\",\n    \"walkBackward\": \"s\",",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "inventory",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "inventory = [None] * INVENTORY_SIZE  # Each slot can hold an item (represented by a color)\nselected_slot = 0  # Currently selected inventory slot\ninventory_height = 4\n# keyboard info\nkeybinds = {\n    \"saveFile\": \"f5\",\n    \"reloadSaveFile\": \"f9\",\n    \"walkForward\": \"w\",\n    \"walkBackward\": \"s\",\n    \"walkLeft\": \"a\",",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "selected_slot",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "selected_slot = 0  # Currently selected inventory slot\ninventory_height = 4\n# keyboard info\nkeybinds = {\n    \"saveFile\": \"f5\",\n    \"reloadSaveFile\": \"f9\",\n    \"walkForward\": \"w\",\n    \"walkBackward\": \"s\",\n    \"walkLeft\": \"a\",\n    \"walkRight\": \"d\",",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "inventory_height",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "inventory_height = 4\n# keyboard info\nkeybinds = {\n    \"saveFile\": \"f5\",\n    \"reloadSaveFile\": \"f9\",\n    \"walkForward\": \"w\",\n    \"walkBackward\": \"s\",\n    \"walkLeft\": \"a\",\n    \"walkRight\": \"d\",\n    \"increaseInventoryIndex\": \"right\",",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "keybinds",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "keybinds = {\n    \"saveFile\": \"f5\",\n    \"reloadSaveFile\": \"f9\",\n    \"walkForward\": \"w\",\n    \"walkBackward\": \"s\",\n    \"walkLeft\": \"a\",\n    \"walkRight\": \"d\",\n    \"increaseInventoryIndex\": \"right\",\n    \"decreaseInventoryIndex\": \"left\",\n    \"collectResource\": \"space\",",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "pressedKeys",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "pressedKeys = []\ndef collect_resources(player_ci):\n    \"\"\"Collect resources based on the terrain the player is standing on\"\"\"\n    global inventory\n    # Define what resources can be collected from each terrain type\n    resource_map = {\n        CI_GRASS: (50, 200, 50),  # Green (plant fiber)\n        CI_ROCK: (150, 150, 150),  # Gray (stone)\n        CI_SAND: (210, 180, 140),  # Tan (sand)\n        CI_WATER: (100, 150, 255),  # Light blue (water)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "ConsoleRenderer",
+        "kind": 6,
+        "importPath": "renderer",
+        "description": "renderer",
+        "peekOfCode": "class ConsoleRenderer():\n    def __init__(self, tick:types.FunctionType = None, sizeChange:types.FunctionType = None, bg: tuple[int, int, int] = (0,0,0), disableConsoleCursor: bool = True):\n        colorama.init()\n        self.__running__ = False\n        self.onTick = tick\n        self.onSizeChange = sizeChange\n        self.__bg__ = bg\n        self.__disable_console_cursor__ = disableConsoleCursor\n        self.__prevFrame__ = [[]]\n    def onTick(self, size: tuple[int, int]) -> list[list[tuple[int, int, int]]]:",
+        "detail": "renderer",
+        "documentation": {}
+    }
+]
