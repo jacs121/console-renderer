@@ -165,9 +165,9 @@ class ConsoleRenderer():
                 t.join(timeout=0.01)
         self.__running__ = False
 
-    def overlayOnCanvas(self, canvas: Texture, 
-                       layer: Image, 
-                       position: Vector2) -> Texture:
+    def overlayOnCanvas(self, canvas: Image | Texture, 
+                       layer: Image | Texture, 
+                       position: Vector2) -> Image | Texture:
         
         for y in range(layer.size.y):
             for x in range(len(layer.size.x)):
@@ -175,14 +175,27 @@ class ConsoleRenderer():
                 canvas_x = x + position.y
                 
                 if 0 <= canvas_x < canvas.size.x and 0 <= canvas_y < canvas.size.y:
-                    overlay_pixel = layer.get_pixel(Vector2(x, y))
+                    if isinstance(layer, Image):
+                        overlay_pixel = layer.get_pixel(Vector2(x, y))
+                    else:
+                        overlay_pixel = layer[Vector2(x, y)]
                     
-                    base_pixel = canvas[Vector2(canvas_x, canvas_y)]
-                    canvas[Vector2(canvas_x, canvas_y)] = (
-                        int(base_pixel.r * (1 - overlay_pixel.a) + overlay_pixel.r * overlay_pixel.a),
-                        int(base_pixel.g * (1 - overlay_pixel.a) + overlay_pixel.g * overlay_pixel.a),
-                        int(base_pixel.b * (1 - overlay_pixel.a) + overlay_pixel.b * overlay_pixel.a)
-                    )
+                    if isinstance(canvas, Image):
+                        base_pixel = canvas.get_pixel(Vector2(canvas_x, canvas_y))
+                        canvas.set_pixel(Vector2(canvas_x, canvas_y), Color("RGB",
+                            [
+                                int(base_pixel.r * (1 - overlay_pixel.a) + overlay_pixel.r * overlay_pixel.a),
+                                int(base_pixel.g * (1 - overlay_pixel.a) + overlay_pixel.g * overlay_pixel.a),
+                                int(base_pixel.b * (1 - overlay_pixel.a) + overlay_pixel.b * overlay_pixel.a)
+                            ]
+                        ))
+                    else:
+                        base_pixel = canvas[Vector2(canvas_x, canvas_y)]
+                        canvas[Vector2(canvas_x, canvas_y)] = (
+                            int(base_pixel.r * (1 - overlay_pixel.a) + overlay_pixel.r * overlay_pixel.a),
+                            int(base_pixel.g * (1 - overlay_pixel.a) + overlay_pixel.g * overlay_pixel.a),
+                            int(base_pixel.b * (1 - overlay_pixel.a) + overlay_pixel.b * overlay_pixel.a)
+                        )
         return canvas
 
     def __pixel__(self, colorTop: Color, colorBottom: Color, 
