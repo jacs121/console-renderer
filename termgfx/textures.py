@@ -3,6 +3,7 @@ from .vectors import *
 from .colors import *
 from enum import Enum
 import numpy as np
+from PIL import Image as pillowImage
 
 class SliceError(Exception): pass
 
@@ -13,46 +14,46 @@ class REPEAT_MODE(str, Enum):
 
 class Image:
     def __init__(self, size: Vector2, initial_color: Optional[Color] = None):
-        self.width = int(size.x)
-        self.height = int(size.y)
+        self.__width__ = int(size.x)
+        self.__height__ = int(size.y)
         if initial_color is None:
             initial_color = Color("RGB", [0, 0, 0])
         # NumPy array for RGB
-        self.dataArray = np.full((self.height, self.width, 3),
+        self.__dataArray__ = np.full((self.__height__, self.__width__, 3),
                                  [initial_color.r, initial_color.g, initial_color.b],
                                  dtype=np.uint8)
 
     def set_pixel(self, position: Vector2, color: Color):
         x, y = int(position.x), int(position.y)
-        if 0 <= x < self.width and 0 <= y < self.height:
-            self.dataArray[y, x] = [color.r, color.g, color.b]
+        if 0 <= x < self.__width__ and 0 <= y < self.__height__:
+            self.__dataArray__[y, x] = [color.r, color.g, color.b]
 
     def get_pixel(self, position: Vector2) -> Color:
         x, y = int(position.x), int(position.y)
-        if 0 <= x < self.width and 0 <= y < self.height:
-            rgb = self.dataArray[y, x]
+        if 0 <= x < self.__width__ and 0 <= y < self.__height__:
+            rgb = self.__dataArray__[y, x]
             return Color("RGB", [int(rgb[0]), int(rgb[1]), int(rgb[2])])
         return Color("RGB", [0, 0, 0])
 
     def fill(self, color: Color):
-        self.dataArray[:, :] = [color.r, color.g, color.b]
+        self.__dataArray__[:, :] = [color.r, color.g, color.b]
 
     def __getitem__(self, index: Vector2 | slice):
         # Ensure we return a Color object for compatibility
         if isinstance(index, Vector2):
             x, y = int(index.x), int(index.y)
-            if 0 <= x < self.width and 0 <= y < self.height:
-                rgb = self.dataArray[y, x]
+            if 0 <= x < self.__width__ and 0 <= y < self.__height__:
+                rgb = self.__dataArray__[y, x]
                 return Color("RGB", [int(rgb[0]), int(rgb[1]), int(rgb[2])])
             return Color("RGB", [0, 0, 0])
         elif isinstance(index, slice) and not index.step:
             x1, y1 = int(index.start.x), int(index.start.y)
             x2, y2 = int(index.stop.x), int(index.stop.y)
-            newData = Image(Vector2(self.width, self.height), RGB_BLACK)
+            newData = Image(Vector2(self.__width__, self.__height__), RGB_BLACK)
             for x in range(x1, x2):
                 for y in range(y1, y2):
-                    if 0 <= x < self.width and 0 <= y < self.height:
-                        rgb = self.dataArray[y, x]
+                    if 0 <= x < self.__width__ and 0 <= y < self.__height__:
+                        rgb = self.__dataArray__[y, x]
                         newData.set_pixel(Vector2(x, y), rgb)
             return newData
         elif isinstance(index, slice) and index.step:
@@ -64,15 +65,39 @@ class Image:
             raise ValueError("Image data cannot be empty")
         height = len(data)
         width = len(data[0])
-        array = np.empty((height, width, 3), dtype=np.uint8)
+        image = cls(Vector2(width, height))
         for y in range(height):
             for x in range(width):
                 c = data[y][x]
-                array[y, x] = [c.r, c.g, c.b]
-        image = cls(Vector2(width, height))
-        image.dataArray = array
+                image.set_pixel(Vector2(y, x), Color("RGB", [c.r, c.g, c.b]))
         return image
+    
+    @classmethod
+    def from_pillow(cls, img: pillowImage.Image):
+        ImageData = cls(Vector2(img.size[0], img.size[1]), RGB_BLACK)
+        for x in range(img.size[0]):
+            for y in range(img.size[1]):
+                color = None
+                if img.mode == "L":
+                    color = Color("GRAY", list(img.getpixel(x, y)))
+                elif img.mode == "RGB":
+                    color = Color("RGB", list(img.getpixel(x, y)))
+                elif img.mode == "RGBA":
+                    color = Color("RGBA", list(img.getpixel(x, y)))
+                elif img.mode == "HSV":
+                    color = Color("HSV", list(img.getpixel(x, y)))
+                if not color:
+                    raise ColorModeError(f"Unsupported mode: {img.mode}")
+                ImageData.set_pixel(Vector2(x, y), color)
+        return ImageData
+    
+    @property
+    def size(self):
+        return Vector2(self.__width__, self.__height__)
 
+    @property
+    def dataArray(self):
+        return self.__dataArray__
 
 class Texture:
     def __init__(self, data: Color | Image, repeatMode: Optional[REPEAT_MODE] = None):

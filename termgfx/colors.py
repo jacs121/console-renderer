@@ -1,5 +1,7 @@
 from typing import Literal, Union
 
+class ColorModeError(Exception): pass
+
 _Number = Union[int, float]
 _ColorMode = Literal["RGB", "RGBA", "HSV", "GRAY"]
 class Color:
@@ -36,7 +38,7 @@ class Color:
             self.mode = "RGB"  # Treat as RGB for rendering
             
         else:
-            raise ValueError(f"Unsupported mode: {mode}")
+            raise ColorModeError(f"Unsupported mode: {mode}")
 
     def _convert_hsv_to_rgb(self):
         """Convert HSV to RGB for rendering"""
