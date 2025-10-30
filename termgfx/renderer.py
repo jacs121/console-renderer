@@ -2,7 +2,6 @@ import shutil
 import sys
 import colorama
 import time
-import subprocess
 from .colors import *
 from .textures import *
 from .vectors import *
@@ -15,7 +14,7 @@ class ConsoleRenderer():
                  sizeChange: Optional[types.FunctionType] = None, 
                  bg: Color = Color("RGB", [0, 0, 0]), 
                  disableConsoleCursor: bool = True):
-        colorama.init()
+        colorama.just_fix_windows_console()
         self.__running__ = False
 
         self.onTick = tick
@@ -42,7 +41,8 @@ class ConsoleRenderer():
                 kernel32.SetConsoleMode(h_stdin, new_mode)
             except Exception:
                 pass
-
+        
+        sys.stdout.write("\033c")
         while self.__running__:
             _size = self.get_resolution()
             if size != _size:
@@ -62,7 +62,9 @@ class ConsoleRenderer():
 
     def showFrame(self):
         size = self.get_resolution()
-        pixels = self.onTick(size)
+        pixels = self.onTick(Vector2(size.y, size.x))
+
+        sys.stdout.write("\033c")
         self.__show_pixels__(self.__get_pixel_display_list__(pixels))
 
     def overlayOnCanvas(self, canvas: List[List[Tuple[int, int, int]]], 
@@ -108,13 +110,6 @@ class ConsoleRenderer():
 
         return pix + "\u2580"
 
-    def __clear__(self):
-        """Clear the console"""
-        if sys.platform not in ('win32', 'cygwin'):
-            subprocess.call('clear', shell=True)
-        else:
-            subprocess.call('cls', shell=True)
-
     def get_resolution(self) -> Vector2:
         """Get the resolution in pixels (width, height)"""
         size = shutil.get_terminal_size()
@@ -142,12 +137,11 @@ class ConsoleRenderer():
             
         return pixel_list
 
-    def __show_pixels__(self, pixel_data: List[List[Color]]):
+    def __show_pixels__(self, pixel_data: List[List[Color]]): # -< to slow
         """Render pixel data to console with optimized updates"""
         height = len(pixel_data)
         if height == 0:
             return
-            
         width = len(pixel_data[0])
         
         # Build the frame string
@@ -169,7 +163,7 @@ class ConsoleRenderer():
         
         # Only redraw if the frame changed
         if frame_str != self.__prevFrameStr__:
-            self.__clear__()
-            sys.stdout.write(frame_str[:-1])
+            colorama.just_fix_windows_console()
+            sys.stdout.write("\033[0;0H"+frame_str[:-1])
             sys.stdout.flush()
             self.__prevFrameStr__ = frame_str
