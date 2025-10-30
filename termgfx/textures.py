@@ -146,6 +146,33 @@ class Texture:
         r, g, b = self.__met__[y, x]
         return Color("RGB", [int(r), int(g), int(b)])
 
+    def __setitem__(self, value: Vector2, color: Color):
+        height, width = self.__met__.shape[:2]
+        
+        if width == 0 or height == 0:
+            raise IndexError("Texture has no data")
+        
+        if self.__repeat_mode__ == REPEAT_MODE.FINITE:
+            max_x = int(self.__size__.x * self.__repeat_vector__.x)
+            max_y = int(self.__size__.y * self.__repeat_vector__.y)
+            
+            if value.x < 0 or value.x >= max_x or value.y < 0 or value.y >= max_y:
+                raise IndexError(f"{value} is outside of texture bounds")
+                
+            x = int(value.x) % width
+            y = int(value.y) % height
+
+        elif self.__repeat_mode__ == REPEAT_MODE.DISABLE:
+            if value.x < 0 or value.x >= width or value.y < 0 or value.y >= height:
+                raise IndexError(f"{value} is outside of texture bounds")
+            x = int(value.x)
+            y = int(value.y)
+        else:  # INFINITE mode
+            x = int(value.x) % width
+            y = int(value.y) % height
+
+        self.__met__[y, x] = [color.r, color.g, color.b]
+
     @property
     def size(self) -> Vector2:
         return self.__size__

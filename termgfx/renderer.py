@@ -165,24 +165,23 @@ class ConsoleRenderer():
                 t.join(timeout=0.01)
         self.__running__ = False
 
-    def overlayOnCanvas(self, canvas: List[List[Tuple[int, int, int]]], 
-                       layer: List[List[Tuple[int, int, int]]], 
-                       position: Tuple[int, int]) -> List[List[Tuple[int, int, int]]]:
-        for y in range(len(layer)):
-            for x in range(len(layer[0])):
-                canvas_y = y + position[1]
-                canvas_x = x + position[0]
+    def overlayOnCanvas(self, canvas: Texture, 
+                       layer: Image, 
+                       position: Vector2) -> Texture:
+        
+        for y in range(layer.size.y):
+            for x in range(len(layer.size.x)):
+                canvas_y = y + position.x
+                canvas_x = x + position.y
                 
-                if 0 <= canvas_x < len(canvas[0]) and 0 <= canvas_y < len(canvas):
-                    overlay_pixel = layer[y][x]
-                    alpha = overlay_pixel[3] if len(overlay_pixel) == 4 else 1.0
-                    alpha = min(max(alpha, 0), 1)
+                if 0 <= canvas_x < canvas.size.x and 0 <= canvas_y < canvas.size.y:
+                    overlay_pixel = layer.get_pixel(Vector2(x, y))
                     
-                    base_pixel = canvas[canvas_y][canvas_x]
-                    canvas[canvas_y][canvas_x] = (
-                        int(base_pixel[0] * (1 - alpha) + overlay_pixel[0] * alpha),
-                        int(base_pixel[1] * (1 - alpha) + overlay_pixel[1] * alpha),
-                        int(base_pixel[2] * (1 - alpha) + overlay_pixel[2] * alpha)
+                    base_pixel = canvas[Vector2(canvas_x, canvas_y)]
+                    canvas[Vector2(canvas_x, canvas_y)] = (
+                        int(base_pixel.r * (1 - overlay_pixel.a) + overlay_pixel.r * overlay_pixel.a),
+                        int(base_pixel.g * (1 - overlay_pixel.a) + overlay_pixel.g * overlay_pixel.a),
+                        int(base_pixel.b * (1 - overlay_pixel.a) + overlay_pixel.b * overlay_pixel.a)
                     )
         return canvas
 

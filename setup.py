@@ -27,12 +27,13 @@ setup(
     python_requires=">=3.7",
     install_requires=[
         "colorama>=0.4.4",
+        "pillow>=8.0.0",
+        "numpy>=1.19.0"
     ],
     extras_require={
         "dev": [
             "pytest>=6.0",
             "black",
-            "flake8",
         ],
     },
     entry_points={
