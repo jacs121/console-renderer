@@ -10,7 +10,7 @@ A high-performance terminal graphics library that uses Unicode block characters 
 - Image and texture management
 - Cross-platform support (Windows, Linux, macOS)
 
-## Installation
+## Installation (not yet implemented)
 
 ```bash
 pip install console-gfx
