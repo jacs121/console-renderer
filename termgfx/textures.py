@@ -2,6 +2,9 @@ from typing import Optional, List
 from .vectors import *
 from .colors import *
 from enum import Enum
+import numpy as np
+
+class SliceError(Exception): pass
 
 class REPEAT_MODE(str, Enum):
     INFINITE = "INFINITE"
@@ -14,45 +17,60 @@ class Image:
         self.height = int(size.y)
         if initial_color is None:
             initial_color = Color("RGB", [0, 0, 0])
-        
-        # Create a 2D list of Color objects
-        self.dataArray: List[List[Color]] = [
-            [Color(initial_color.mode, list(initial_color)) for _ in range(self.width)]
-            for _ in range(self.height)
-        ]
+        # NumPy array for RGB
+        self.dataArray = np.full((self.height, self.width, 3),
+                                 [initial_color.r, initial_color.g, initial_color.b],
+                                 dtype=np.uint8)
 
     def set_pixel(self, position: Vector2, color: Color):
         x, y = int(position.x), int(position.y)
         if 0 <= x < self.width and 0 <= y < self.height:
-            self.dataArray[y][x] = color
+            self.dataArray[y, x] = [color.r, color.g, color.b]
 
     def get_pixel(self, position: Vector2) -> Color:
         x, y = int(position.x), int(position.y)
         if 0 <= x < self.width and 0 <= y < self.height:
-            return self.dataArray[y][x]
+            rgb = self.dataArray[y, x]
+            return Color("RGB", [int(rgb[0]), int(rgb[1]), int(rgb[2])])
         return Color("RGB", [0, 0, 0])
 
     def fill(self, color: Color):
-        for y in range(self.height):
-            for x in range(self.width):
-                self.dataArray[y][x] = Color(color.mode, list(color))
+        self.dataArray[:, :] = [color.r, color.g, color.b]
 
-    def __getitem__(self, index: Vector2) -> List[Color]:
-        return self.dataArray[index.x][index.y]
-
-    def __len__(self) -> int:
-        return self.height
+    def __getitem__(self, index: Vector2 | slice):
+        # Ensure we return a Color object for compatibility
+        if isinstance(index, Vector2):
+            x, y = int(index.x), int(index.y)
+            if 0 <= x < self.width and 0 <= y < self.height:
+                rgb = self.dataArray[y, x]
+                return Color("RGB", [int(rgb[0]), int(rgb[1]), int(rgb[2])])
+            return Color("RGB", [0, 0, 0])
+        elif isinstance(index, slice) and not index.step:
+            x1, y1 = int(index.start.x), int(index.start.y)
+            x2, y2 = int(index.stop.x), int(index.stop.y)
+            newData = Image(Vector2(self.width, self.height), RGB_BLACK)
+            for x in range(x1, x2):
+                for y in range(y1, y2):
+                    if 0 <= x < self.width and 0 <= y < self.height:
+                        rgb = self.dataArray[y, x]
+                        newData.set_pixel(Vector2(x, y), rgb)
+            return newData
+        elif isinstance(index, slice) and index.step:
+            raise SliceError("step size is not recognized as a slice value")
 
     @classmethod
     def from_list(cls, data: List[List[Color]]):
         if not data or not data[0]:
             raise ValueError("Image data cannot be empty")
-        
         height = len(data)
         width = len(data[0])
-        
+        array = np.empty((height, width, 3), dtype=np.uint8)
+        for y in range(height):
+            for x in range(width):
+                c = data[y][x]
+                array[y, x] = [c.r, c.g, c.b]
         image = cls(Vector2(width, height))
-        image.dataArray = data
+        image.dataArray = array
         return image
 
 
@@ -64,7 +82,7 @@ class Texture:
             self.__size__ = Vector2(1, 1)
             if self.__repeat_mode__ is None:
                 self.__repeat_mode__ = REPEAT_MODE.INFINITE
-            self.__met__ = [[data]]
+            self.__met__ = np.full((1, 1, 3), [data.r, data.g, data.b], dtype=np.uint8)
         elif isinstance(data, Image):
             self.__size__ = Vector2(data.width, data.height)
             if self.__repeat_mode__ is None:
@@ -76,8 +94,7 @@ class Texture:
         self.__repeat_vector__ = Vector2(1, 1)
 
     def __getitem__(self, value: Vector2) -> Color:
-        width = len(self.__met__[0]) if self.__met__ else 0
-        height = len(self.__met__) if self.__met__ else 0
+        height, width = self.__met__.shape[:2]
         
         if width == 0 or height == 0:
             raise IndexError("Texture has no data")
@@ -100,8 +117,9 @@ class Texture:
         else:  # INFINITE mode
             x = int(value.x) % width
             y = int(value.y) % height
-            
-        return self.__met__[y][x]
+
+        r, g, b = self.__met__[y, x]
+        return Color("RGB", [int(r), int(g), int(b)])
 
     @property
     def size(self) -> Vector2:

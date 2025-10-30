@@ -2,7 +2,6 @@ from typing import Literal, Union
 
 _Number = Union[int, float]
 _ColorMode = Literal["RGB", "RGBA", "HSV", "GRAY"]
-
 class Color:
     def __init__(self, mode: _ColorMode, val: list[_Number]):
         self.mode = mode.upper()
