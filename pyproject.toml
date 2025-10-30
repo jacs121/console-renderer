@@ -4,36 +4,40 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "term-gfx"
-version = "1.0.0"
-authors = [
-  { name="Nitzan Soriano", email="nitzansoriano1@example.com" },
-]
+version = "1.1.0"
 description = "A terminal-based graphics library for Python"
 readme = "README.md"
-license = { text = "MIT" }
 requires-python = ">=3.7"
+license = { text = "MIT" }
+authors = [
+  { name = "Nitzan Soriano", email = "nitzansoriano1@example.com" }
+]
+
 classifiers = [
-    "Development Status :: 4 - Beta",
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
 ]
 
 dependencies = [
-    "colorama>=0.4.4",
+  "colorama>=0.4.4",
+  "pillow>=8.0.0",
+  "numpy>=1.19.0"
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=6.0",
-    "black",
-    "flake8",
+  "pytest>=6.0",
+  "black"
 ]
+
+[tool.setuptools.packages.find]
+include = ["termgfx*"]
