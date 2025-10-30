@@ -10,8 +10,8 @@ A high-performance terminal graphics library that uses Unicode block characters 
 - Image and texture management
 - Cross-platform support (Windows, Linux, macOS)
 
-## Installation (not yet implemented)
+## Installation
 
 ```bash
-pip install console-gfx
+pip install term_gfx-[VERSION]-py3-none-any.whl
 ```
