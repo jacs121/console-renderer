@@ -1,7 +1,7 @@
 import math
 
 class Vector2:
-    def __init__(self, x: float = 0.0, y: float = 0.0):
+    def __init__(self, x: float | int = 0.0, y: float | int = 0.0):
         self.x = x
         self.y = y
     
@@ -11,17 +11,27 @@ class Vector2:
     def __sub__(self, other: 'Vector2') -> 'Vector2':
         return Vector2(self.x - other.x, self.y - other.y)
     
-    def __mul__(self, scalar: float) -> 'Vector2':
-        if isinstance(scalar, float):
-            return Vector2(self.x * scalar, self.y * scalar)
-        elif isinstance(scalar, type(self)):
+    def __mul__(self, scalar: float | int) -> 'Vector2':
+        if isinstance(scalar, type(self)):
             return Vector2(self.x * scalar.x, self.y * scalar.y)
+        return Vector2(self.x * scalar, self.y * scalar)
     
     def __truediv__(self, scalar: float) -> 'Vector2':
-        return Vector2(self.x / scalar, self.y / scalar)
+        if isinstance(scalar, type(self)):
+            return Vector2(self.x / scalar.x, self.y / scalar.y)
+        else:
+            return Vector2(self.x / scalar, self.y / scalar)
+    
+    def __div__(self, scalar: float) -> 'Vector2':
+        if isinstance(scalar, type(self)):
+            return Vector2(self.x / scalar.x, self.y / scalar.y)
+        else:
+            return Vector2(self.x / scalar, self.y / scalar)
     
     def __floordiv__(self, scalar: float) -> 'Vector2':
-        return Vector2(self.x // scalar, self.y // scalar)
+        if isinstance(scalar, type(self)):
+            return Vector2(int(self.x // scalar.x), int(self.y // scalar.y))
+        return Vector2(int(self.x // scalar), int(self.y // scalar))
     
     def __eq__(self, other: 'Vector2') -> bool:
         return self.x == other.x and self.y == other.y

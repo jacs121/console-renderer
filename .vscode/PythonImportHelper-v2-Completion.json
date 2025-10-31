@@ -336,6 +336,22 @@
         "documentation": {}
     },
     {
+        "label": "wintypes",
+        "importPath": "ctypes",
+        "description": "ctypes",
+        "isExtraImport": true,
+        "detail": "ctypes",
+        "documentation": {}
+    },
+    {
+        "label": "wintypes",
+        "importPath": "ctypes",
+        "description": "ctypes",
+        "isExtraImport": true,
+        "detail": "ctypes",
+        "documentation": {}
+    },
+    {
         "label": "threading",
         "kind": 6,
         "isExtraImport": true,
@@ -501,6 +517,14 @@
         "importPath": "lmdb",
         "description": "lmdb",
         "detail": "lmdb",
+        "documentation": {}
+    },
+    {
+        "label": "Vector2",
+        "importPath": "vectors",
+        "description": "vectors",
+        "isExtraImport": true,
+        "detail": "vectors",
         "documentation": {}
     },
     {
@@ -1797,6 +1821,42 @@
         "documentation": {}
     },
     {
+        "label": "CONSOLE_FONT_INFOEX",
+        "kind": 6,
+        "importPath": "termgfx.console_font",
+        "description": "termgfx.console_font",
+        "peekOfCode": "class CONSOLE_FONT_INFOEX(ctypes.Structure):\n    _fields_ = [\n        (\"cbSize\", wintypes.ULONG),\n        (\"nFont\", wintypes.DWORD),\n        (\"dwFontSize\", wintypes._COORD),\n        (\"FontFamily\", wintypes.UINT),\n        (\"FontWeight\", wintypes.UINT),\n        (\"FaceName\", wintypes.WCHAR * 32)\n    ]\ndef get_console_info():",
+        "detail": "termgfx.console_font",
+        "documentation": {}
+    },
+    {
+        "label": "get_console_info",
+        "kind": 2,
+        "importPath": "termgfx.console_font",
+        "description": "termgfx.console_font",
+        "peekOfCode": "def get_console_info():\n    \"\"\"Get current console information\"\"\"\n    kernel32 = ctypes.windll.kernel32\n    hConsole = kernel32.GetStdHandle(-11)  # STD_OUTPUT_HANDLE\n    # Get font info\n    font_info = CONSOLE_FONT_INFOEX()\n    font_info.cbSize = ctypes.sizeof(CONSOLE_FONT_INFOEX)\n    kernel32.GetCurrentConsoleFontEx(hConsole, False, ctypes.byref(font_info))\n    fontSize = Vector2(font_info.dwFontSize.X*2, font_info.dwFontSize.Y)\n    # Get current terminal size using shutil",
+        "detail": "termgfx.console_font",
+        "documentation": {}
+    },
+    {
+        "label": "set_console_font_size",
+        "kind": 2,
+        "importPath": "termgfx.console_font",
+        "description": "termgfx.console_font",
+        "peekOfCode": "def set_console_font_size(fontSize: Vector2 = Vector2(8, 16)):\n    kernel32 = ctypes.windll.kernel32\n    hConsole, (original_font_size, originalTerminalSize) = get_console_info()\n    input(f\"prev size: {original_font_size}\")\n    # Set font size\n    font_info = CONSOLE_FONT_INFOEX()\n    font_info.cbSize = ctypes.sizeof(CONSOLE_FONT_INFOEX)\n    kernel32.GetCurrentConsoleFontEx(hConsole, False, ctypes.byref(font_info))\n    font_info.dwFontSize.X = fontSize.x\n    font_info.dwFontSize.Y = fontSize.y",
+        "detail": "termgfx.console_font",
+        "documentation": {}
+    },
+    {
+        "label": "s",
+        "kind": 5,
+        "importPath": "termgfx.console_font",
+        "description": "termgfx.console_font",
+        "peekOfCode": "s = set_console_font_size(Vector2(8, 8))\ninput(f\"original font: {s}\\nnew size {Vector2(8, 8)}\\n\")\nset_console_font_size(s)\ninput(\">>>\")",
+        "detail": "termgfx.console_font",
+        "documentation": {}
+    },
+    {
         "label": "ConsoleRenderer",
         "kind": 6,
         "importPath": "termgfx.renderer",
@@ -1846,8 +1906,44 @@
         "kind": 6,
         "importPath": "termgfx.vectors",
         "description": "termgfx.vectors",
-        "peekOfCode": "class Vector2:\n    def __init__(self, x: float = 0.0, y: float = 0.0):\n        self.x = x\n        self.y = y\n    def __add__(self, other: 'Vector2') -> 'Vector2':\n        return Vector2(self.x + other.x, self.y + other.y)\n    def __sub__(self, other: 'Vector2') -> 'Vector2':\n        return Vector2(self.x - other.x, self.y - other.y)\n    def __mul__(self, scalar: float) -> 'Vector2':\n        if isinstance(scalar, float):",
+        "peekOfCode": "class Vector2:\n    def __init__(self, x: float | int = 0.0, y: float | int = 0.0):\n        self.x = x\n        self.y = y\n    def __add__(self, other: 'Vector2') -> 'Vector2':\n        return Vector2(self.x + other.x, self.y + other.y)\n    def __sub__(self, other: 'Vector2') -> 'Vector2':\n        return Vector2(self.x - other.x, self.y - other.y)\n    def __mul__(self, scalar: float | int) -> 'Vector2':\n        if isinstance(scalar, type(self)):",
         "detail": "termgfx.vectors",
+        "documentation": {}
+    },
+    {
+        "label": "CONSOLE_FONT_INFOEX",
+        "kind": 6,
+        "importPath": "font factor test",
+        "description": "font factor test",
+        "peekOfCode": "class CONSOLE_FONT_INFOEX(ctypes.Structure):\n    _fields_ = [\n        (\"cbSize\", wintypes.ULONG),\n        (\"nFont\", wintypes.DWORD),\n        (\"dwFontSize\", wintypes._COORD),\n        (\"FontFamily\", wintypes.UINT),\n        (\"FontWeight\", wintypes.UINT),\n        (\"FaceName\", wintypes.WCHAR * 32)\n    ]\ndef get_console_info():",
+        "detail": "font factor test",
+        "documentation": {}
+    },
+    {
+        "label": "get_console_info",
+        "kind": 2,
+        "importPath": "font factor test",
+        "description": "font factor test",
+        "peekOfCode": "def get_console_info():\n    \"\"\"Get current console information\"\"\"\n    kernel32 = ctypes.windll.kernel32\n    hConsole = kernel32.GetStdHandle(-11)  # STD_OUTPUT_HANDLE\n    # Get font info\n    font_info = CONSOLE_FONT_INFOEX()\n    font_info.cbSize = ctypes.sizeof(CONSOLE_FONT_INFOEX)\n    kernel32.GetCurrentConsoleFontEx(hConsole, False, ctypes.byref(font_info))\n    # Get current terminal size using shutil\n    terminal_size = shutil.get_terminal_size()",
+        "detail": "font factor test",
+        "documentation": {}
+    },
+    {
+        "label": "set_console_font_size",
+        "kind": 2,
+        "importPath": "font factor test",
+        "description": "font factor test",
+        "peekOfCode": "def set_console_font_size(font_width=8, font_height=12, maintain_window_size=True):\n    \"\"\"\n    Set font size and optionally maintain window dimensions\n    Parameters:\n    - font_width, font_height: Font dimensions\n    - maintain_window_size: If True, keeps the same window dimensions in characters\n    \"\"\"\n    kernel32 = ctypes.windll.kernel32\n    hConsole, original_font_info, original_columns, original_rows = get_console_info()\n    # Store original settings for restoration",
+        "detail": "font factor test",
+        "documentation": {}
+    },
+    {
+        "label": "s",
+        "kind": 5,
+        "importPath": "font factor test",
+        "description": "font factor test",
+        "peekOfCode": "s = set_console_font_size(8, 8)\ninput(s)\nset_console_font_size(*s['font_size'])\ninput(\">>>\")",
+        "detail": "font factor test",
         "documentation": {}
     }
 ]
