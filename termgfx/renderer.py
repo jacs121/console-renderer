@@ -7,6 +7,7 @@ from .textures import *
 from .vectors import *
 import types
 import ctypes
+from .console_font import create_console
 import threading
 import os
 from typing import List, Tuple, Optional
@@ -105,7 +106,16 @@ class ConsoleRenderer():
             self.__frameThreads__.append(thread)
             thread.start()
         
-    def run(self, fps: int = 60):
+    def run(self, fps: int = 60, termSettings: dict[str, str |int] = None):
+        """run the render loop
+
+        Args:
+            fps (int, optional): frames per second. Defaults to 60.
+            termSettings (dict[str, str  | int], optional, FOR WINDOWS ONLY): the console settings (font_size: int, window_name: str, font_name: str). Defaults to None.
+        """
+        stdout = sys.stdout
+        if termSettings:
+            stdout = create_console(**termSettings).stdout
         size = self.screenResolution
         self.__running__ = True
         
@@ -127,23 +137,26 @@ class ConsoleRenderer():
             if size != _size:
                 size = _size
                 if self.onSizeChange:
-                    out = self.onSizeChange(Vector2(size.y, size.x))
+                    out = self.onSizeChange(size)
                     self.__prevFrame__ = out
                     self.__frameStr__ = self.__get_pixel_display_list__(pixels)
                     self.__startThreads__()
             
-            out = self.onTick(Vector2(size.y, size.x))
+            out = self.onTick(size)
             if self.__prevFrame__ != out:
-                pixels = self.onTick(Vector2(size.y, size.x))
+                pixels = self.onTick(size)
                 self.__frameOut__ = self.__get_pixel_display_list__(pixels)
             time.sleep(1/fps)
             
-        sys.stdout.write("\033[?25h")
-        sys.stdout.flush()
+        stdout.write("\033[?25h")
+        stdout.flush()
 
-    def showFrame(self):
+    def showFrame(self, termSettings: dict[str, str |int] = None):
+        stdout = sys.stdout
+        if termSettings:
+            stdout = create_console(**termSettings).stdout
         size = self.screenResolution
-        pixels = self.onTick(Vector2(size.y, size.x))
+        pixels = self.onTick(size)
         self.__frameOut__ = self.__get_pixel_display_list__(pixels)
         self.__frameStr__ = pixels
 
@@ -157,8 +170,8 @@ class ConsoleRenderer():
             self.__frameThreads__.append(thread)
             thread.start()
 
-        sys.stdout.write("\033[?25h")
-        sys.stdout.flush()
+        stdout.write("\033[?25h")
+        stdout.flush()
         
         for t in self.__frameThreads__:
             if t.is_alive():

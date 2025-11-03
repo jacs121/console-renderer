@@ -109,7 +109,7 @@ class Texture:
                 self.__repeat_mode__ = REPEAT_MODE.INFINITE
             self.__met__ = np.full((1, 1, 3), [data.r, data.g, data.b], dtype=np.uint8)
         elif isinstance(data, Image):
-            self.__size__ = Vector2(data.width, data.height)
+            self.__size__ = data.size
             if self.__repeat_mode__ is None:
                 self.__repeat_mode__ = REPEAT_MODE.DISABLE
             self.__met__ = data.dataArray
