@@ -7,7 +7,7 @@ from .textures import *
 from .vectors import *
 import types
 import ctypes
-from .console_font import create_console
+from .__console_font__ import create_console
 import threading
 import os
 from typing import List, Tuple, Optional
@@ -105,7 +105,7 @@ class ConsoleRenderer():
             thread = threading.Thread(target=self.__displayThreadFunc__, args=(start, end))
             self.__frameThreads__.append(thread)
             thread.start()
-        
+
     def run(self, fps: int = 60, termSettings: dict[str, str |int] = None):
         """run the render loop
 
