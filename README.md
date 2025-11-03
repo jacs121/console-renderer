@@ -10,7 +10,6 @@ A high-performance terminal graphics library that uses Unicode block characters 
 - Image and texture management
 - Cross-platform support (Windows, Linux, maybe macOS)
 
-
 **advanced list of features:**
 
 * function-based frame coding
@@ -31,4 +30,6 @@ A high-performance terminal graphics library that uses Unicode block characters 
 
 ```bash
 pip install term_gfx-[VERSION]-py3-none-any.whl
+or
+pip install git+https://github.com/jacs121/console-renderer
 ```
