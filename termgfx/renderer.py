@@ -217,10 +217,11 @@ class ConsoleRenderer():
         # Ensure colors are in RGB format
         top_r, top_g, top_b = colorTop.r, colorTop.g, colorTop.b
         bottom_r, bottom_g, bottom_b = colorBottom.r, colorBottom.g, colorBottom.b
+        equalChar = colorTop == colorBottom
         
         if pre is None:
             return f"\033[38;2;{top_r};{top_g};{top_b}m" \
-                   f"\033[48;2;{bottom_r};{bottom_g};{bottom_b}m\u2580"
+                   f"\033[48;2;{bottom_r};{bottom_g};{bottom_b}m{'\u2588' if equalChar else '\u2580'}"
         
         pix = ""
         pre_top, pre_bottom = pre
@@ -231,7 +232,7 @@ class ConsoleRenderer():
         if pre_bottom != colorBottom:
             pix += f"\033[48;2;{bottom_r};{bottom_g};{bottom_b}m"
 
-        return pix + "\u2580"
+        return pix + ('\u2588' if equalChar else '\u2580')
 
     @property
     def screenResolution(self) -> Vector2:
