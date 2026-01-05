@@ -6,43 +6,42 @@ _Number = Union[int, float]
 _ColorMode = Literal["RGB", "RGBA", "HSV", "GRAY"]
 class Color:
     def __init__(self, mode: _ColorMode, val: list[_Number]):
-        self.mode = mode.upper()
+        self.__mode__ = mode.upper()
         self._components = []
         
-        if self.mode == "RGB":
+        if self.__mode__ == "RGB":
             if len(val) != 3:
                 raise ValueError("RGB mode requires 3 values")
-            self._components = [int(val[0]), int(val[1]), int(val[2])]
-            self.r, self.g, self.b = self._components
-            
-        elif self.mode == "RGBA":
+            self._components = [int(val[0]), int(val[1]), int(val[2]), 1]
+            self._r, self._g, self._b, self._a = self._components
+
+        elif self.__mode__ == "RGBA":
             if len(val) != 4:
                 raise ValueError("RGBA mode requires 4 values")
             self._components = [int(val[0]), int(val[1]), int(val[2]), int(val[3])]
-            self.r, self.g, self.b, self.a = self._components
-            
-        elif self.mode == "HSV":
+            self._r, self._g, self._b, self._a = self._components
+
+        elif self.__mode__ == "HSV":
             if len(val) != 3:
                 raise ValueError("HSV mode requires 3 values")
-            self._components = [val[0], val[1], val[2]]
-            self.h, self.s, self.v = self._components
-            # Convert HSV to RGB for rendering
-            self._convert_hsv_to_rgb()
             
-        elif self.mode == "GRAY":
+            # Convert HSV to RGB for rendering
+            self.__convert_hsv_to_rgb__(val[0], val[1], val[2])
+
+        elif self.__mode__ == "GRAY":
             if len(val) != 1:
                 raise ValueError("GRAY mode requires 1 value")
             gray = int(val[0])
-            self._components = [gray, gray, gray]
-            self.r, self.g, self.b = self._components
-            self.mode = "RGB"  # Treat as RGB for rendering
-            
+            self._components = [gray, gray, gray, 1]
+            self._r, self._g, self._b, self._a = self._components
+            self.__mode__ = "RGB"  # Treat as RGB for rendering
+
         else:
             raise ColorModeError(f"Unsupported mode: {mode}")
 
-    def _convert_hsv_to_rgb(self):
+    def __convert_hsv_to_rgb__(self, h, s, v):
         """Convert HSV to RGB for rendering"""
-        h, s, v = self.h, self.s / 100.0, self.v / 100.0
+        h, s, v = h, s / 100.0, v / 100.0
         
         if s == 0:
             r = g = b = int(v * 255)
@@ -69,9 +68,9 @@ class Color:
                 
             r, g, b = int(r * 255), int(g * 255), int(b * 255)
         
-        self._components = [r, g, b]
-        self.r, self.g, self.b = r, g, b
-        self.mode = "RGB"
+        self._components = [r, g, b, 1]
+        self._r, self._g, self._b, self._a = self._components
+        self.__mode__ = "RGB"
 
     def __iter__(self):
         return iter(self._components)
@@ -88,7 +87,50 @@ class Color:
         return self._components == other._components
 
     def __repr__(self) -> str:
-        return f"Color({self.mode}: {self._components})"
+        return f"Color({self.__mode__}: {self._components})"
+    
+    @property
+    def HSV(self) -> tuple[_Number, _Number, _Number]:
+        r, g, b, a = self._components
+        r /= 255
+        g /= 255
+        b /= 255
+        
+        Cmax = max(r, g, b)
+        Cmin = min(r, g, b)
+        Delta = Cmax - Cmin
+        
+        V = Cmax
+        if Cmax == 0:
+            S = 0
+        else:
+            S = Delta / Cmax
+        if Delta == 0:
+            H = 0
+        elif Cmax == r:
+            H = 60 * (((g - b) / Delta) % 6)
+        elif Cmax == g:
+            H = 60 * (((b - r) / Delta) + 2)
+        else:
+            H = 60 * (((r - g) / Delta) + 4)
+        
+        return (H, S, V)
+    
+    @property
+    def R(self):
+        return self._r
+    
+    @property
+    def G(self):
+        return self._g
+    
+    @property
+    def B(self):
+        return self._b
+    
+    @property
+    def alpha(self):
+        return self._a
 
 RGB_RED = Color("RGB", [255, 0, 0])
 RGB_GREEN = Color("RGB", [0, 255, 0])
